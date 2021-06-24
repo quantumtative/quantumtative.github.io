@@ -5,42 +5,283 @@
     <title>Michael Lindsey's home page</title>
   </head>
 
-  <body>
+  <body style="margin-top: 25px; margin-left: 25px; margin-right: 0px;"></body>
+  
 
-    <div style="max-width:800px; word-wrap:break-word;">
+
+    <div style="max-width:750px; word-wrap:break-word;">
 
     <p>
 
-    <img src="lindseyPic3.jpg" width="220"  align=left style="margin-right:15px;" border="2">
+    <img src="lindseyPic3.jpg" width="225"  align=left style="margin-right:25px;" border="2">
 
     <font face="Georgia">
 
+    
     <h1>Michael Lindsey</h1>
+    <p style="font-size:14px;">
+    <b>Email:</b> firstname dot lastname at cims dot nyu dot edu
+    <br><br>
+    
+    <b>Background:</b> I am an NSF Postdoctoral Fellow at the Courant Institute. In summer 2019, I completed my PhD in Applied 
+    Mathematics at Berkeley, where I was supported by an NSF Graduate Research Fellowship. My advisor at Berkeley was 
+    <a href="https://math.berkeley.edu/~linlin/">Lin Lin</a>. Here is my <a href="cvLindsey.pdf">CV</a> (6/2021). Here is 
+    my <a href="dissertationLindsey.pdf">dissertation</a> (8/2019). (In particular, the <a href="dissertationBackground.pdf">first part</a> 
+    is meant to provide an introduction to electronic structure and quantum many-body physics for an applied-mathematical audience. Please email me if 
+    you are interested in further resources or information!) 
+    In 2018, my doctoral work was awarded the 
+    <a href="https://math.berkeley.edu/about/awards/grad/bernard-friedman-memorial-prize">Bernard Friedman Memorial Prize</a> 
+    in Applied Mathematics by the Berkeley math department. <br><br>
 
-    Email: firstname dot lastname at cims dot nyu dot edu
+    <b>Research interests:</b> I study methods for high-dimensional scientific computing problems, especially quantum many-body 
+    problems arising in quantum chemistry and condensed matter physics. Approaches draw on a wide variety of 
+    techniques including semidefinite relaxation, Monte Carlo sampling, and optimization over parametric function classes such as tensor networks and neural networks.
+    <br><br>
+    </p>
+
+    <h2>Research directions</h2>
+    <span style="font-size:14px;">
+    Click titles to expand.<br><br>
+    </span>
+    
+    <details><summary><b>Convex relaxations and semidefinite programming</b></summary>
+    <p style="margin-left:30px; font-size:14px">
+    <b><i>Background.</i></b> For many intractable optimization problems, it is possible to formulate 
+    a convex relaxation by making use of simple structure in the objective function. Examples range from combinatorial optimization problems (such as the famous Max-Cut problem) 
+    to the problem of determining the ground state energy of a quantum many-body system, which is of fundamental importances in 
+    quantum chemistry and condensed matter physics. Relaxations are derived by writing down necessary constraints satisfied by 
+    some reduced variable in the original problem. Often the resulting problem has the structure of 
+    a semidefinite program (e.g., the Goemans-Williamson algorithm for Max-Cut and the 2-RDM theories of quantum chemistry).
+    <br><br>
+    <b><i>Quantum marginals.</i></b>
+    We have introduced a <a href="https://arxiv.org/abs/1910.00560">new type</a> of 'quantum marginal' relaxation for quantum many-body problems and 
+    developed a scalable <a href="https://arxiv.org/abs/2106.02682">solver</a> for it. This relaxation carries the interpretation of a 
+    quantum embedding theory (see <u>Quantum embedding</u> below), which motivates the solver.
+    <br><br>
+    <b><i>Classical marginals.</i></b>
+    The aforementioned 'quantum marginal' relaxation extends preceding work on a classical marginal 
+    <a href="https://arxiv.org/abs/1905.08322">relaxation</a> for 
+    discrete multi-marginal optimal transport problems. With a multiscale approach, 
+    we have <a href="https://arxiv.org/abs/2012.10046">extended</a> this classical marginal relaxation to solve general continuous global optimization problems with pairwise structure, which include 
+    sensor network localization and optimal molecular configuration problems.
+    <br><br>
+    <b><i>General semidefinite programming.</i></b> More broadly I am interested in optimization for general SDP, particularly 
+    with low-rank structure. 
+    </p>
+    </details>
+    <br>
+
+    
+    <details><summary><b>Quantum embedding</b></summary>
+    <p style="margin-left:30px; font-size:14px">
+    <img src="blockspin.png" width="180"  align=left style="margin-right:15px;">
+    <i>Pictured</i>:
+    A partition of a lattice system into disjoint fragments.
+    <br><br>
+    <b><i>Background.</i></b> The fundamental difficulty of quantum 
+    many-body problems is that the complexity of the quantum wavefunction grows exponentially 
+    with the number of particles in the system. Recently, quantum embedding theories have made 
+    progress in addressing this difficulty by dividing systems into smaller fragments, which 
+    can themselves be treated with an accurate 'high-level' theory, perhaps even implemented on 
+    a quantum computer! These local problems are coupled together 
+    self-consistently via some coarse global physical quantities. 
+    <br><br>
+    <b><i>Variational embedding.</i></b> Our recently introduced 
+    <a href="https://arxiv.org/abs/1910.00560">variational embedding theory</a> is the 
+    first embedding theory which provides a guaranteed bound 
+    on the ground-state energy. However, in its original formulation as an abstract semidefinite 
+    program, the theory is hard to solve numerically. By making use of quantum embedding 
+    intuition, we have introduced a scalable <a href="https://arxiv.org/abs/2106.02682">solver</a> for 
+    this semidefinite program. This approach solves effective 'high-level' local problems in parallel, 
+    where the effective problems are 
+    determined self-consistently by updates that enforce coarse global constraints.
+    <br><br>
+    <b><i>Other embedding methods.</i></b>
+    I have also worked on improving the scaling and robustness of existing quantum embedding 
+    theories, including <a href="https://arxiv.org/abs/2003.00873">density matrix embedding theory</a> (DMET)
+    and <a href="https://arxiv.org/abs/1907.07191">dynamical mean-field theory</a> (DMFT). I am also interested in 
+    improving the mathematical understanding of <a href="https://arxiv.org/abs/1902.04796">impurity problems</a>, 
+    which are the embedded subproblems in DMFT, as well as DMFT itself.
+    </p>
+    </details>
+    <br>
+
+    
+    <details><summary><b>High-dimensional functions</b></summary>
+    <p style="margin-left:30px; font-size:14px">
+    <img src="rgn.png" width="300"  align=left style="margin-right:15px;">
+    <i>Pictured</i>:
+    The fast convergence of the <a href="https://arxiv.org/abs/2106.10558">Rayleigh-Gauss-Newton</a> (RGN) method is robust 
+    to spikes in the energy that result from the stochastic exploration of new spin configurations.
+    <br><br>
+    <b><i>Background.</i></b> Many scientific computing problems can be viewed as optimization problems 
+    over functions on high-dimensional state spaces (discrete or continuous). Such problems include the ground-state 
+    eigenvalue problem for quantum many-body problems, as well as the problem of computing committor functions to  
+    characterize reaction pathways in computational chemistry. A well-chosen parametric class of functions 
+    (such as a tensor network or neural network parametrization) can make such an optimization problem 
+    tractable.
+    <br><br>
+    <b><i>Variational Monte Carlo.</i></b> Variational Monte Carlo (VMC) tackles the ground-state quantum 
+    many-body problem by optimizing the energy over a parametric class of wavefunctions. Parameter updates must 
+    be computed by sampling configurations according to the Born rule for the wavefunction. 
+    Recently, we introduced a <a href="https://arxiv.org/abs/2106.10558">Rayleigh-Gauss-Newton</a> approach to VMC optimization which improves 
+    on existing methods for recently introduced neural-network-based parametrizations.
+    <br><br>
+    <b><i>High-dimensional probability.</i></b> The committor function is a fundamental object in the study of rare transitions 
+    between metastable states of a stochastic process. We recently showed that <a href="https://arxiv.org/abs/2106.12515">tensor networks</a> can 
+    be used to compute committor functions in high dimensions, allowing us to examine rare transitions in a 1D Ginzburg-Landau theory.
+    </p>
+    </details>
+    <br>
+
+    
+    <details><summary><b>Monte Carlo sampling</b></summary>
+    <p style="margin-left:30px; font-size:14px">
+    <img src="flow.gif" width="180"  align=left style="margin-right:15px;" border="2">
+    <i>Pictured</i>:
+    Mean-field dynamics for an <a href="https://arxiv.org/abs/2106.02686">ensemble sampler</a>.
+    <br><br>
+    Monte Carlo sampling is the most flexible and widely-used tool for estimating sums and integrals in high dimensions. 
+    It plays a supporting role in Variational Monte Carlo (see <u>High-dimensional functions</u> above), where 
+    efficient sampling is crucial for wavefunction optimization. Conversely, parametric function classes can support the goal of Monte Carlo sampling. Some results in this area 
+    should be coming soon!<br><br>
+
+    I am also interested in generic sampling problems. We introduced an 
+    <a href="https://arxiv.org/abs/2106.02686">ensemble MCMC sampler</a> that can circumvent slow 
+    mixing due to metastability.
+
+    </p>
+    </details>
+    <br>
+
+    <details><summary><b>Many-body Green's functions</b></summary>
+    <p style="margin-left:30px; font-size:14px">
+    <img src="GWsumLW.png" width="720"  align=left style="margin-bottom:20px;">
+    <i>Pictured</i>:
+    Bold Feynman diagram expansion for the GW approximation to the Luttinger-Ward functional.
+    <br><br>
+    <b><i>Background.</i></b>
+    Beyond the single-particle picture of density functional theory (DFT), many of the most 
+    widely used computational methods in quantum many-body physics are based on the formalism 
+    of Green's functions, which encode response and excitation properties of a system. Many-body 
+    perturbation theory (MBPT), which expands quantities of interest perturbatively in 
+    the strength of the inter-particle interaction, defines a major category of approaches to computing 
+    Green's functions. The terms in this expansion correspond to the so-called 
+    bare Feynman diagrams. These can in turn be reorganized into a series of bold Feynman diagrams. 
+    These objects can be understood in terms of a construction called the Luttinger-Ward (LW) functional. 
+    But the construction is only formal, and recently the existence 
+    of a single-valued LW functional has been cast into doubt by theoretical and numerical evidence.
+    <br><br>
+    <b><i>Euclidean lattice field theory.</i></b> 
+    We have <i>rigorously</i> justified the LW formalism in the context of Euclidean 
+    lattice field theory. In particular, we have rigorously justified the 
+    <a href="https://arxiv.org/abs/1809.02900">combinatorial arguments</a> underlying the
+    bold diagrammatic expansion, constructed the LW functional via a 
+    <a href="https://arxiv.org/abs/1809.02901">non-perturbative argument</a>, and
+    and proved that the bold diagrammatic expansion forms an asymptotic series for the 
+    LW functional.
+
+    <br><br>
+    <b><i>DMFT.</i></b> The dynamical mean-field theory (DMFT) is a quantum embedding 
+    theory in which Green's functions play a central role. See <u>Quantum embedding</u> above for further 
+    details on theoretical and practical work in this area.
+
+    </p>
+    </details>
+    <br>
+
+
+    <h2>Selected presentations</h2>
+
+    <details><summary><u><span style="font-size:14px;">Expand</span></u></summary>
+
+    <p style="margin-left:20px;font-size:14px">
+
+    <b>Scalable variational embedding for quantum many-body problems</b><br>
+    SIAM Conference on Mathematical Aspects of Materials Science (May 2021)<br>
+<a href="slides_var_emb_ms_talk.pdf">[slides]</a>
+<br><br>
+
+    <b>Optimization for variational Monte Carlo with neural quantum states</b><br>
+    Modeling and Simulation Group Seminar: Machine Learning in Science at NYU (April 2021)<br>
+<a href="slides_vmc_msg.pdf">[slides]</a>
+<br><br>
+
+    <b>Optimal transport via a Monge-Amp&egrave;re optimization problem</b><br>
+    SIAM Conference on the Mathematics of Data Science (May 2020)<br>
+<a href="slides_mongeAmpere.pdf">[slides]</a>
+<br><br>
+
+    <b>Toward sharp error analysis of extended Langrangian molecular dynamics for polarizable force field simulation</b><br>
+    Ki-Net Young Researchers Workshop (October 2019)<br>
+    <a href="slides_ki_net_oct2019.pdf">[slides]</a>
     <br><br>
 
-    I am an NSF Postdoctoral Fellow at the Courant Institute. In summer 2019, I completed my PhD in Applied 
-    Mathematics at Berkeley, where I was supported by an NSF Graduate Research Fellowship. My advisor at Berkeley was 
-    <a href="https://math.berkeley.edu/~linlin/">Lin Lin</a>. Here is my <a href="cvLindsey.pdf">CV</a> (10/2020).<br><br>
-    I work on analysis and numerics for electronic structure theory and quantum many-body physics. I am interested more 
-    broadly in applied analysis, statistical mechanics, and mathematical physics. To get a further sense of my interests, 
-    see <a href="./reading.html">what I read in graduate school</a>. In particular, I have also done research in 
-    optimal transport, which was recognized recently with the 
-    <a href="https://sinews.siam.org/Details-Page/july-2019-prize-spotlight#Michael"> SIAM Student Paper Prize<a>. 
-    In 2018, my doctoral work was awarded the Bernard Friedman Memorial Prize in Applied Mathematics by the Berkeley math department. <br><br>
+    <b>Semidefinite relaxation of multi-marginal optimal transport, with application to strictly correlated electrons in second quantization</b><br>
+    ICIAM (July 2019)<br>
+    <a href="slides_iciam2019.pdf">[slides]</a>
+    <br><br>
+
+    <b>A classical statistical mechanics approach to understanding Green's function methods and the Luttinger-Ward formalism</b><br>
+    Oberwolfach (March 2018)<br>
+    <a href="slides_oberwolfach_2018.pdf">[slides]</a>
+    <br><br>
+
+    <b>Adaptive compression for Hartree-Fock-like equations</b><br>
+    SIAM Conference on Applied Linear Algebra (May 2018)<br>
+    <a href="slides_siam_ala_2018.pdf">[slides]</a>
+
+    </p>
+    </details>
+    <br>
+
+
+
+
+
+
+
 
     <h2>Publications and preprints</h2>
 
-    <b>Towards sharp error analysis of extended Lagrangian molecular dynamics</b>
-    (with Dong An and Lin Lin), preprint.
-<br>
+    <p style="margin-left:10px;font-size:14px">
+    
+    <b>Committor functions via tensor networks</b><br>
+    with Yian Chen, Jeremy Hoskins, and Yuehaw Khoo<br>
+    <a href="https://arxiv.org/abs/2106.12515">[arXiv:2106.12515]</a>
+    <br><br>
+
+    <b>Rayleigh-Gauss-Newton optimization with enhanced sampling for variational Monte Carlo</b><br>
+    Robert J. Webber and Michael Lindsey<br>
+    <a href="https://arxiv.org/abs/2106.10558">[arXiv:2106.10558]</a>
+    <br><br>
+    
+    <b>Ensemble Markov chain Monte Carlo with teleporting walkers</b><br>
+    with Jonathan Weare and Anna Zhang<br>
+<a href="https://arxiv.org/abs/2106.02686">[arXiv:2106.02686]</a>
+<br><br>
+
+
+    <b>Scalable semidefinite programming approach to variational embedding for quantum many-body problems</b><br>
+    with Yuehaw Khoo<br>
+<a href="https://arxiv.org/abs/2106.02682">[arXiv:2106.02682]</a>
+<br><br>
+
+    <b>Multiscale semidefinite programming approach to positioning problems with pairwise structure</b><br>
+    with Yian Chen and Yuehaw Khoo<br>
+<a href="https://arxiv.org/abs/2012.10046">[arXiv:2012.10046]</a>
+<br><br>
+
+
+    <b>Towards sharp error analysis of extended Lagrangian molecular dynamics</b><br>
+    with Dong An and Lin Lin<br>
 <a href="https://arxiv.org/abs/2010.07508">[arXiv:2010.07508]</a>
 <br><br>
 
 
-    <b>Enhancing robustness and efficiency of density matrix embedding theory via semidefinite programming and local correlation potential fitting</b>
-    (Xiaojie Wu, Michael Lindsey, Tiangang Zhou, Yu Tong, and Lin Lin), <i>Phys. Rev. B</i> 102, 085123 (2020).
+    <b>Enhancing robustness and efficiency of density matrix embedding theory via semidefinite programming and local correlation potential fitting</b><br>
+    Xiaojie Wu, Michael Lindsey, Tiangang Zhou, Yu Tong, and Lin Lin<br>
+    <i>Phys. Rev. B</i> 102, 085123 (2020)
     <br>
     <a href="https://doi.org/10.1103/PhysRevB.102.085123">[journal]</a> 
 <a href="https://arxiv.org/abs/2003.00873">[arXiv:2003.00873]</a>
@@ -50,31 +291,36 @@
 <br>
 
 
-    <b>Variational embedding for quantum many-body problems</b> (with Lin Lin), <i>Comm. Pure Appl. Math.</i>, to appear.
+    <b>Variational embedding for quantum many-body problems</b><br>
+    with Lin Lin<br>
+    <i>Comm. Pure Appl. Math.</i>, to appear
     <br>
     <a href="https://arxiv.org/abs/1910.00560">[arXiv:1910.00560]</a>
     <br>
     <br>
     
-    <b>Efficient hybridization fitting for dynamical mean-field theory via semi-definite relaxation</b>
-    (Carlos Mejuto-Zaera, Leonardo Zepeda-N&uacute;&ntilde;ez, Michael Lindsey, Norm Tubman, Birgitta Whaley, and Lin Lin),
-    <i>Phys. Rev. B</i> 101, 035143 (2020).
+    <b>Efficient hybridization fitting for dynamical mean-field theory via semi-definite relaxation</b><br>
+    Carlos Mejuto-Zaera, Leonardo Zepeda-N&uacute;&ntilde;ez, Michael Lindsey, Norm Tubman, Birgitta Whaley, and Lin Lin<br>
+    <i>Phys. Rev. B</i> 101, 035143 (2020)
     <br>
     <a href="https://doi.org/10.1103/PhysRevB.101.035143">[journal]</a>
     <a href="https://arxiv.org/abs/1907.07191">[arXiv:1907.07191]</a>
     <br>
     <br>
     
-    <b>Semidefinite relaxation of multi-marginal optimal transport for strictly correlated electrons in second quantization</b>
-    (with Yuehaw Khoo, Lin Lin, and Lexing Ying), <i>SIAM J. Sci. Comput.</i>, to appear.
+    <b>Semidefinite relaxation of multi-marginal optimal transport for strictly correlated electrons in second quantization</b><br>
+    with Yuehaw Khoo, Lin Lin, and Lexing Ying<br>
+    <i>SIAM J. Sci. Comput.</i> 42, B1462 (2020)
     <br>
+    <a href="https://doi.org/10.1137/20M1310977">[journal]</a> 
     <a href="https://arxiv.org/abs/1905.08322">[arXiv:1905.08322]</a>
     <br>
     <br>
     
-    <b>Projected density matrix embedding theory with applications to the two-dimensional Hubbard model</b>
-    (Xiaojie Wu, Zhi-Hao Cui, Yu Tong, Michael Lindsey, Garnet Kin-Lic Chan, and Lin Lin),
-    <i>J. Chem. Phys.</i> 151, 064108 (2019).
+    
+    <b>Projected density matrix embedding theory with applications to the two-dimensional Hubbard model</b><br>
+    Xiaojie Wu, Zhi-Hao Cui, Yu Tong, Michael Lindsey, Garnet Kin-Lic Chan, and Lin Lin<br>
+    <i>J. Chem. Phys.</i> 151, 064108 (2019)
     <br>
     <a href="https://doi.org/10.1063/1.5108818">[journal]</a> 
 <a href="https://arxiv.org/abs/1905.00886">[arXiv:1905.00886]</a>
@@ -82,72 +328,126 @@
 <br>
 
     
-    <b>Sparsity pattern of the self-energy for classical and quantum impurity problems</b> (with Lin Lin),
-    <i>Ann. Henri Poincar&eacute;</i> 21, 2219 (2020).
+    <b>Sparsity pattern of the self-energy for classical and quantum impurity problems</b><br>
+    with Lin Lin<br>
+    <i>Ann. Henri Poincar&eacute;</i> 21, 2219 (2020)
     <br>
     <a href="https://doi.org/10.1007/s00023-020-00917-1">[journal]</a> 
 <a href="https://arxiv.org/abs/1902.04796">[arXiv:1902.04796]</a>
 <br>
 <br>
 
-    <b>Bold Feynman diagrams and the Luttinger-Ward formalism via Gibbs measures. Part II: Non-perturbative analysis</b>
-    (with Lin Lin), preprint.
+    <b>Bold Feynman diagrams and the Luttinger-Ward formalism via Gibbs measures. Part II: Non-perturbative analysis</b><br>
+    with Lin Lin<br>
+    <i>Arch. Ration. Mech. Anal.</i>, to appear
 <br>
 <a href="https://arxiv.org/abs/1809.02901">[arXiv:1809.02901]</a>
 <br><br>
 
-    <b>Bold Feynman diagrams and the Luttinger-Ward formalism via Gibbs measures. Part I: Perturbative approach</b>
-    (with Lin Lin), preprint.
+    <b>Bold Feynman diagrams and the Luttinger-Ward formalism via Gibbs measures. Part I: Perturbative approach</b><br>
+    with Lin Lin<br>
+    <i>Arch. Ration. Mech. Anal.</i>, to appear
 <br>
 <a href="https://arxiv.org/abs/1809.02900">[arXiv:1809.02900]</a>
 <br><br>
     
-    <b>Variational structure of Luttinger-Ward formalism and bold diagrammatic expansion for Euclidean lattice field theory</b>
-    (with Lin Lin), <i>Proc. Natl. Acad. Sci.</i> 115, 2282 (2018).
+    <b>Variational structure of Luttinger-Ward formalism and bold diagrammatic expansion for Euclidean lattice field theory</b><br>
+    with Lin Lin<br>
+    <i>Proc. Natl. Acad. Sci.</i> 115, 2282 (2018)
 <br>
 <a href="https://doi.org/10.1073/pnas.1720782115">[journal]</a> <a href="VariationLW.pdf">[.pdf]</a> <a href="VariationLW_support.pdf">[supporting info]</a>
 <br><br>
     
-    <b>Convergence of adaptive compression methods for Hartree-Fock-like equations</b>
-    (with Lin Lin), <i>Comm. Pure Appl. Math.</i> 72, 451 (2019).
+    <b>Convergence of adaptive compression methods for Hartree-Fock-like equations</b><br>
+    with Lin Lin<br>
+    <i>Comm. Pure Appl. Math.</i> 72, 451 (2019)
 <br>
 <a href="https://doi.org/10.1002/cpa.21784">[journal]</a> <a href="https://arxiv.org/abs/1703.05441">[arXiv:1703.05441]</a>
 <br><br>
 
-    <b>Optimal transport via a Monge-Amp&egrave;re optimization problem</b>
-    (with Yanir A. Rubinstein), <i>SIAM J. Math. Anal.</i> 49, 3073 (2017).
+    <b>Optimal transport via a Monge-Amp&egrave;re optimization problem</b><br>
+    with Yanir A. Rubinstein<br>
+    <i>SIAM J. Math. Anal.</i> 49, 3073 (2017)
 <br>
 <a href="https://doi.org/10.1137/16M1071560">[journal]</a> <a href="OT_MAOP.pdf">[.pdf]</a>
+<br>
+(Note: recognized with the 
+<a href="https://sinews.siam.org/Details-Page/july-2019-prize-spotlight#Michael"> SIAM Student Paper Prize<a>.)
 <br><br>
 
-    <b>On discontinuity of planar optimal transport maps</b>
-    (with Otis Chodosh, Vishesh Jain, Lyuboslav Panchev, and Yanir A. Rubinstein),
-    <i>Journal of Topology and Analysis</i> 07, 239 (2015).<br>
+    <b>On discontinuity of planar optimal transport maps</b><br>
+    with Otis Chodosh, Vishesh Jain, Lyuboslav Panchev, and Yanir A. Rubinstein<br>
+    <i>Journal of Topology and Analysis</i> 07, 239 (2015)<br>
 
 <a href="https://doi.org/10.1142/S1793525315500089">[journal]</a> <a href="http://arxiv.org/abs/1312.2929">[arXiv:1312.2929]</a>
 <br>
-(Note: this research was largely carried out during
+(Note: research carried out during 
 <a href="http://mathematics.stanford.edu/academics/undergraduate/undergraduate-research/#SURIM">SURIM</a> 2012.)
     <br><br>
 
-    <b>Infrared imagery of streak formation in a breaking wave</b>
-    (Ivan Savelyev, Robert A. Handler, and  Michael Lindsey), <i>Physics of Fluids</i> 24, 121701 (2012).<br>
+    <b>Infrared imagery of streak formation in a breaking wave</b><br>
+    Ivan Savelyev, Robert A. Handler, and  Michael Lindsey<br>
+    <i>Physics of Fluids</i> 24, 121701 (2012)<br>
 <a href="https://doi.org/10.1063/1.4769459">[journal]</a>
 
-    <h2>Other research writings</h2>
+</p><br>
 
+
+
+
+
+
+
+
+
+
+
+
+
+    <h2>Teaching</h2>
+    <details><summary><u><span style="font-size:14px;">Expand</span></u></summary>
+    <p style="margin-left:20px;font-size:14px">
+    <b>New York University</b><br>
+    Spring 2021: Linear Algebra I (graduate) <br>
+    Fall 2020: Calculus I <br><br>
+
+    <b>UC Berkeley</b><br>
+    Spring 2018: <a href="https://math.berkeley.edu/~apaulin/54_002(Spring2018).html">Math 54</a>, Alexander Paulin <a href="./math54.html">[section page]</a> <br>
+    Spring 2016: <a href="https://math.berkeley.edu/~auroux/53s16/index.html">Math 53</a>, Denis Auroux <a href="./math53quizzes.html">[quizzes]</a> <br>
+    Fall 2015: Math 1B, Ole Hald
+
+</p>
+    </details>
+    <br>
+
+
+    <h2>Miscellanea</h2>
+
+    
+    <h4>Reading list</h4>
+    <p style="margin-left:10px; font-size:14px">
+    Here is a list of <a href="./reading.html">what I read in graduate school</a>, which may suggest 
+    some interesting resources.
+    </p>
+
+    <h4>Undergraduate research</h4>
+    
+    <details><summary><u><span style="font-size:14px;">Expand</span></u></summary>
+
+    <p style="margin-left:20px; font-size:14px">
     <b>Two views on optimal transport and its numerical solution</b> (2015).
     My undergraduate thesis (supervised by <a href="http://www2.math.umd.edu/~yanir/">Yanir Rubinstein</a> 
     and <a href="http://web.stanford.edu/~rmazzeo/cgi-bin/">Rafe Mazzeo</a>), 
-    which presented two new formulations of optimal transport problems leading to two corresponding methods for numerically solving them.<br>
-<a href="undergraduateThesisLindsey.pdf">[pdf]</a>
+    which presented two new formulations of optimal transport problems leading to two corresponding methods for numerically solving them. 
+    This thesis won the Kennedy Thesis Prize for the top undergraduate thesis in the natural sciences at Stanford.<br>
+<a href="undergraduateThesisLindsey.pdf">[.pdf]</a>
 <br><br>
 
     <b>Asymptotics of Hermite polynomials</b> (2015). A largely expository paper 
     (for a course on orthogonal polynomials) about asymptotics of Hermite polynomials and the Gaussian Unitary Ensemble (GUE). 
     Presents a result about the stationary states for the quantum harmonic oscillator, which, 
     though likely nothing new, I think is fairly cool.<br>
-<a href="hermite.pdf">[pdf]</a>
+<a href="hermite.pdf">[.pdf]</a>
 <br><br>
 
     <b>Spectral methods for neural computation</b> (2013/14). A presentation for the 
@@ -162,25 +462,19 @@
     surfaces and extract multiscale learned shape descriptors. To help with training, 
     I introduced a new set of shape descriptors based on conformal maps.<br>
 <a href="curisSlides.pdf">[slides]</a><br>
-(Note: This research was carried out during  <a href="https://curis.stanford.edu/">CURIS</a> 
+(Note: research carried out during  <a href="https://curis.stanford.edu/">CURIS</a> 
 2013 in Stanford's <a href="http://geometry.stanford.edu/">Geometric Computation Group</a>.)
 
 <br><br>
     <b>The <i>k</i>-discs algorithm and its kernelization</b> (2012). Introduces and 
     analyzes an extension of <i>k</i>-means allowing cluster centroids to be discs of 
     arbitrary dimension, capable of recovering more diverse cluster geometries.<br>
-    <a href="kDiscs.pdf">[pdf]</a> <br>
-(Note: this research was carried out as a class project for CS 229 at Stanford.)
+    <a href="kDiscs.pdf">[.pdf]</a> <br>
+(Note: class project for CS 229 at Stanford.)
 
-    <h2>Teaching</h2>
-
-    <b>New York University</b><br>
-    Fall 2020: Calculus I <br><br>
-
-    <b>UC Berkeley</b><br>
-    Spring 2018: <a href="https://math.berkeley.edu/~apaulin/54_002(Spring2018).html">Math 54</a>, Alexander Paulin <a href="./math54.html">[section page]</a> <br>
-    Spring 2016: <a href="https://math.berkeley.edu/~auroux/53s16/index.html">Math 53</a>, Denis Auroux <a href="./math53quizzes.html">[quizzes]</a> <br>
-    Fall 2015: Math 1B, Ole Hald
+    </p>
+    </details>
+    <br><br>
 
     </font>
 
