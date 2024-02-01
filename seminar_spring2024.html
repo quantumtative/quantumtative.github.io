@@ -1,0 +1,157 @@
+<head>
+  <title>HDSC Seminar, Fall 2023</title>
+</head>
+
+<body>
+
+  <div style="max-width:700px; word-wrap:break-word; margin-left:25px">
+
+    <p>
+
+      <font face="Georgia">
+
+
+	<h1><br>HDSC Seminar, Fall 2023</h1>
+	<i>Organizer</i>: Michael Lindsey<br>
+	<i>Meeting details</i>: Tuesday 11-12, Evans 732<br><br>
+
+	<h2>Description</h2>
+
+	Welcome to an informal seminar on <b>high-dimensional scientific computing (HDSC)</b>. We will investigate paradigms for HDSC 
+	including tensor networks, Monte Carlo methods, semidefinite programming relaxations, graphical models, neural networks, and more, as well as tools from numerical 
+	linear algebra and optimization.<br><br>
+
+	Past semesters: <a href=./seminar_fall2023>[Fall 2023]</a><br><br>
+
+	<h2>Schedule</h2>
+	<i>Click for abstracts.</i><br><br>
+
+    <details><summary> <b>February 1</b> <br> <i>Speaker</i>: Yuhang Cai <a href="https://yuhang-cai.com/">[home page]</a> <br> <i>Topic</i>: <b>Clustering in self-attention dynamics</b>  </summary>
+		<p style="margin-left:30px; font-size:14px">
+		<b><i>Abstract.</i></b> Viewing transformers with fixed weights as interacting particle systems,  the particles, representing tokens, 
+		tend to cluster toward particular limiting objects as time tends to infinity. With techniques from dynamical systems and PDEs, 
+		it can be shown that the type of limiting object depends on the spectrum of the value matrix.
+		</p>
+		</details>
+		<br>
+
+	<h2>Sample topics to present</h2>
+	<i>In no particular order.</i> <br>
+
+	<h3>Machine learning</h3>
+	<ol>
+		<li>Theory of <a href="https://arxiv.org/abs/1906.11300">benign overfitting</a> </li><br>
+
+		<li>Theory of SGD training in the <a href="https://proceedings.mlr.press/v80/ma18a/ma18a.pdf">interpolation regime</a> </li><br>
+
+		<li>Does <a href="https://arxiv.org/abs/2212.13881">this paper</a> explain feature learning?</li><br>
+
+		<li>Theory of <a href="https://jmlr.org/papers/volume18/14-546/14-546.pdf">convex neural networks</a> </li><br>
+
+		<li>What's new in the mathematical study of transformers: <a href="https://arxiv.org/abs/2305.05465">[link 1]</a>   <a href="https://arxiv.org/abs/2312.10794">[link 2]</a> <br>
+		(See this <a href="https://arxiv.org/abs/2304.10557">crash course</a> for background.)</li> <br>
+
+		<li>What norm do neural network parameters induce in function space? <br>
+			<a href="https://arxiv.org/abs/1902.05040">[1 dimension]</a> <a href="https://arxiv.org/abs/1910.01635">[general case]</a> </li><br>
+
+		<li>Neural networks and Gaussian processes</li>
+		<ol type="a">
+			<li><a href="https://arxiv.org/abs/1711.00165">Deep Neural Networks as Gaussian Processes</a></li>
+			<li><a href="https://arxiv.org/abs/1806.07572">Neural tangent kernel</a></li>
+			<li><a href="https://arxiv.org/abs/2206.07673">Wide Bayesian neural networks have a simple weight posterior</a></li>
+		</ol>
+		<br>
+
+	</ol>
+
+		
+
+	<h3>Matrix sketching</h3>
+	<ol>
+		
+		<li><a href="https://arxiv.org/abs/2005.03185">Review</a> of matrix sketching (leverage and DPP), and see <a href="https://arxiv.org/abs/1207.6083">this review</a> of DPP</li>
+		<br>
+
+		<li>Ridge leverage scores for matrix sketching: <a href="https://arxiv.org/abs/1511.07263">paper</a>, 
+			<a href="https://people.cs.umass.edu/~cmusco/personal_site/pdfs/sodaTalk.pdf">slides</a>, and 
+		<a href="https://www.chrismusco.com/ridgeLeverageHour.pdf">extended slides</a> </li><br>
+
+		<li>Classic: <a href="https://www.cs.princeton.edu/~chazelle/pubs/FJLT-sicomp09.pdf">Fast Johnson-Lindenstrauss transform</a></li><br>
+
+		<li><a href="https://doi.org/10.1137/140978430">A DEIM Induced CUR Factorization</a>, see also the references and discussion in <a href="https://personal.math.vt.edu/embree/cur_talk.pdf">these slides</a></li>
+		<br>
+
+	</ol>
+
+		
+
+	<h3>Group synchronization</h3>
+	<ol>
+
+		<li>Robust synchronization</li>
+			<ol type="a">
+				<li><a href="https://arxiv.org/abs/1912.11347">Cycle-edge message passing</a></li>
+				<li><a href="https://arxiv.org/abs/2007.13638">Message passing least squares</a></li>
+				<li><a href="https://arxiv.org/abs/2206.08994">Quadratic programming</a></li>
+				<li><a href="https://arxiv.org/abs/2311.16544">Representation theory</a></li>
+			</ol>
+			<br>
+
+
+	</ol>
+
+		
+
+	<h3>Tensor networks</h3>
+	<ol>
+
+		<li>Belief propagation for tensor networks</li>
+			<ol type="a">
+				<li>Background materials: <a href="https://people.eecs.berkeley.edu/~wainwrig/Papers/WaiJor08_FTML.pdf">[Wainwright and Jordan]</a> 
+				and <a href="https://web.stanford.edu/~montanar/RESEARCH/book.html">[M&eacute;zard and Montanari]</a></li>
+				<li><a href="https://arxiv.org/abs/1710.01437">Duality of Graphical Models and Tensor Networks</a></li>
+				<li><a href="https://arxiv.org/abs/2301.05844">Block Belief Propagation Algorithm for 2D Tensor Networks</a></li>
+				<li><a href="https://arxiv.org/abs/2306.17837">Gauging tensor networks with belief propagation</a></li>
+			</ol>
+			<br>
+
+		<li>General tensor network contraction</li>
+			<ol type="a">
+				<li><a href="https://arxiv.org/abs/2206.07044">Hyper-optimized compressed contraction of tensor networks with arbitrary geometry</a></li>
+				<li><a href="https://arxiv.org/abs/1912.03014">Contracting Arbitrary Tensor Networks</a></li>
+			</ol>
+			<br>
+
+
+	</ol>
+
+		
+
+	<h3>Sampling with sign problems</h3>
+	<ol>
+	
+		<li>Sampling for lattice gauge theories, cf. <a href="https://link.springer.com/book/10.1007/978-3-642-01850-3">Gattringer and Lang</a> and talk to me</li><br>
+		
+		<li>Complex Langevin</li>
+			<ol type="a">
+				<li>Math references <a href="https://arxiv.org/abs/2007.10198">here</a> and <a href="https://arxiv.org/abs/2109.12762">here</a></li>
+				<li>See also <a href="https://arxiv.org/abs/1907.10183">this review</a> and <a href="https://arxiv.org/abs/1512.05145">Sec. 8 of this review</a></li>
+			</ol>
+			<br>
+
+	</ol>
+
+
+	<h3>Potpourri</h3>
+	<ol>
+		<li>What's new in <a href="https://arxiv.org/abs/2401.01689">Vlasov</a></li><br>
+
+		<li>What's new in <a href="https://arxiv.org/abs/2312.00752">sequence modeling</a></li><br>
+
+		<li> <a href="https://arxiv.org/abs/2207.02149">Stochastic Optimal Control for CV Free Sampling of Molecular Transition Paths</a>
+		</li> <br>
+
+
+	</ol>
+
+</body>
