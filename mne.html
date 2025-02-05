@@ -20,6 +20,11 @@
 
 	<br><br>
 
-	<img src="coord.gif?rand=<?= time(); ?>" alt="Animated GIF" width="600" border="5">
+	<img id="myGif" src="coord.gif" alt="Animated GIF" width="600" border="5">
+
+	<script>
+		const gif = document.getElementById('myGif');
+		gif.src = "coord.gif?t=" + new Date().getTime();
+	</script>
 
 </body>
