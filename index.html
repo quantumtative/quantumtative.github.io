@@ -29,184 +29,119 @@
     Faculty Scientist in the Mathematics Group at Lawrence Berkeley National Laboratory. 
     Here is my <a href="cvLindsey.pdf">CV</a> (9/2024).<br><br>
 
-    <b>Research interests:</b> I work on computational methods driven by numerical linear algebra, optimization, and randomization, with a special focus on 
-    high-dimensional scientific computing problems. These include quantum many-body 
-    problems arising in quantum chemistry and condensed matter physics, as well as various problems in applied probability. Approaches draw on a wide variety of 
-    techniques including semidefinite relaxation, Monte Carlo sampling, and optimization over parametric function classes such as tensor networks and neural networks.
+    <b>Research interests:</b> I work on fast algorithms for scientific computing, driven by numerical linear algebra, optimization, and randomization, with a special focus on 
+    high-dimensional scientific computing problems. Such challenges include quantum many-body 
+    problems arising in quantum chemistry and condensed matter physics, as well the analysis of stochastic processes with many degrees of freedom. Approaches draw on a wide variety of 
+    techniques including low-rank decomposition, semidefinite relaxation, Monte Carlo sampling, and optimization over parametric function classes such as tensor networks and neural networks.
     <br><br>
+
+    </p>
+
+    <h2>Selected research directions</h2>
+    <span style="font-size:14px;">
+    Click titles to expand.<br><br>
+    </span>
+    
+    <details><summary><b>Analysis of Markov processes</b></summary>
+    <p style="margin-left:30px; font-size:14px">
+
+    Across a wide range of applications in the physical and data sciences, the computational 
+    study of Markov chains over large state spaces motivates practitioners to distill the dynamics 
+    into a reduced model over a smaller state space, with a view toward preserving the key long-timescale 
+    properties of the original chain. Motivated by the challenge of building a solid theoretical framework 
+    for such Markov state models, our <a href="https://arxiv.org/abs/2506.22918">recent work</a> introduces a rigorous and comprehensive 
+    approximation theory for the compression of a general reversible Markov chain, bounding the 
+    compression error with respect to the full dynamical evolution. This work connects with our advances in 
+    <a href="https://arxiv.org/abs/2407.01698">column subset selection</a> which offer strong <i>a priori</i> guarantees for the compression.
+    </p>
+    </details>
+    <br>
+
+    <details><summary><b>Rank-structured matrix and tensor computations</b></summary>
+    <p style="margin-left:30px; font-size:14px">
+
+    Low-rank structure plays a fundamental role in scientific computation. Recent directions include column subset selection for <a href="https://arxiv.org/abs/2407.01698">matrix</a> as well as 
+    <a href="https://arxiv.org/abs/2503.18921">tensor</a> decompositions, constructions of <a href="https://arxiv.org/abs/2311.12554">quantized tensor trains</a> and <a href="https://arxiv.org/abs/2404.03182">related operators</a>, a sketching-based approach to <a href="https://arxiv.org/abs/2202.11788">generative 
+        modeling</a> with tensor networks, and calculation of <a href="https://arxiv.org/abs/2106.12515">committor functions</a> for high-dimensional stochastic processes. Even our recent efforts in developing <a href="https://arxiv.org/abs/2504.13373">adaptive multigrid solvers</a>, 
+        which flexibly adapt to a variety of numerical PDE, 
+        are grounded in randomized low-rank numerical linear algebra.
+    </p>
+    </details>
+    <br>
+
+
+    <details><summary><b>Entropy-regularized convex programming</b></summary>
+    <p style="margin-left:30px; font-size:14px">
+
+    One recent <a href="https://arxiv.org/abs/2303.12133">work</a> introduces entropy regularization as a general strategy to obtain 
+    nearly-optimal scaling solvers for SDP, without any rank assumptions, by using the von Neumann 
+    entropy as a regularizer. The resulting dual problem 
+    can be approached using matrix-free randomized trace estimation techniques, combining 
+    tools from numerical analysis and randomized numerical linear algebra. See <a href="https://arxiv.org/abs/2506.09711">this paper</a> for a general 
+    convergence analysis and <a href="https://arxiv.org/abs/2506.20191">this paper</a> for 
+    detailed application to the hard problem of permutation synchronization.<br><br>
+
+    These directions also connect with recent work on <a href="https://arxiv.org/abs/2504.15816">stochastic density functional theory</a>, which puts forward 
+    a theoretically justified algorithmic framework for DFT with optimal computational scaling.
+
+    </p>
+    </details>
+    <br>
+
+    <details><summary><b>Monte Carlo sampling</b></summary>
+    <p style="margin-left:30px; font-size:14px">
+
+    Monte Carlo sampling is the most flexible and widely-used tool for estimating sums and integrals in high dimensions. I am 
+    interested in developing generic sampling techniques such as this <a href="https://arxiv.org/abs/2106.02686">ensemble MCMC sampler</a> that can circumvent slow 
+    mixing due to metastability, 
+    as well as specialized method development in quantum Monte Carlo, e.g., 
+    <a href="https://arxiv.org/abs/2204.14241">scale-invariant HMC</a> for condensed matter field theories.
+
+    </p>
+    </details>
+    <br>
+
+    <details><summary><b>Fast linear solvers and adaptive discretization of quantum chemistry</b></summary>
+    <p style="margin-left:30px; font-size:14px">
+
+    Motivated by the need for quantum chemistry basis sets that adapt to problem geometry while enabling fast computation, we 
+    have introduced several approaches to structured discretization for electronic structure, including <a href="https://arxiv.org/abs/2309.10704">nested gausslets </a> and 
+    <a href="https://arxiv.org/abs/2407.06171">adaptive grid deformation</a>. More recent efforts define a new <a href="https://arxiv.org/abs/2510.21213">discontinuous Galerkin framework</a>
+    for electronic structure, coupled to fast multigrid solvers. In fact, parallel efforts in developing <a href="https://arxiv.org/abs/2504.13373">adaptive multigrid techniques</a> point to 
+    flexible automatic approaches for computational PDEs more broadly.
+
+    </p>
+    </details>
+    <br>
+
+
+
+    <h2>Pedagogical materials</h2>
+    <p style="font-size:14px">
+
+    I have written a text on algorithms for <a href="optimization.pdf">continuous optimization</a>, tying together various perspectives from the convex analysis, machine learning, 
+    theoretical computer science, and scientific computing communities. I hope you find it useful!<br><br>
+
     For an introduction to quantum many-body physics written for an applied math audience, see 
     my <a href="dissertationLindsey.pdf">dissertation</a> (8/2019) and in particular the <a href="dissertationBackground.pdf">first part</a>. 
     Also see <a href="https://www.youtube.com/watch?v=9wClPIIK9jE">this talk</a> for a tutorial on many-body perturbation theory and Green's 
-    function methods.
-    <br><br>
-    <b>News: </b> I am a <a href="https://vpf.berkeley.edu/hellman-fellows-2024">2024 Hellman Fellow</a>. And see this 
-    <a href="https://ls.berkeley.edu/news/accidental-mathematician-professor-michael-lindsey">profile</a> of me.
-    <br><br>
-
-    </p>
-
-    <h2>HDSC Seminar</h2>
-    I run an informal seminar on high-dimensional scientific computing. <a href=./seminar_spring2025>Here is the page</a> for Spring 2025.<br><br>
-    Past semesters: <a href=./seminar_spring2024>[Spring 2024]</a> <a href=./seminar_fall2023>[Fall 2023]</a>
-    <br><br>
-
-    <h2>Research directions</h2>
-    <span style="font-size:14px;">
-    Click titles to expand. More coming soon!<br><br>
-    </span>
-    
-    <details><summary><b>Convex relaxations and semidefinite programming</b></summary>
-    <p style="margin-left:30px; font-size:14px">
-    <b><i>Background.</i></b> For many intractable optimization problems, it is possible to formulate 
-    a convex relaxation by making use of simple structure in the objective function. Examples range from combinatorial optimization problems (such as the famous Max-Cut problem) 
-    to the problem of determining the ground state energy of a quantum many-body system, which is of fundamental importances in 
-    quantum chemistry and condensed matter physics. Relaxations are derived by writing down necessary constraints satisfied by 
-    some reduced variable in the original problem. Often the resulting problem has the structure of 
-    a semidefinite program (e.g., the Goemans-Williamson algorithm for Max-Cut and the 2-RDM theories of quantum chemistry).
-    <br><br>
-    <b><i>Quantum marginals.</i></b>
-    We have introduced a <a href="https://arxiv.org/abs/1910.00560">new type</a> of 'quantum marginal' relaxation for quantum many-body problems and 
-    developed a scalable <a href="https://arxiv.org/abs/2106.02682">solver</a> for it. This relaxation carries the interpretation of a 
-    quantum embedding theory (see <u>Quantum embedding</u> below), which motivates the solver.
-    <br><br>
-    <b><i>Classical marginals.</i></b>
-    The aforementioned 'quantum marginal' relaxation extends preceding work on a classical marginal 
-    <a href="https://arxiv.org/abs/1905.08322">relaxation</a> for 
-    discrete multi-marginal optimal transport problems. With a multiscale approach, 
-    we have <a href="https://arxiv.org/abs/2012.10046">extended</a> this classical marginal relaxation to solve general continuous global optimization problems with pairwise structure, which include 
-    sensor network localization and optimal molecular configuration problems.
-    <br><br>
-    <b><i>General semidefinite programming.</i></b> More broadly I am interested in optimization for general SDP, particularly 
-    with low-rank structure. 
-    </p>
-    </details>
-    <br>
-
-    
-    <details><summary><b>Quantum embedding</b></summary>
-    <p style="margin-left:30px; font-size:14px">
-    <img src="blockspin.png" width="180"  align=left style="margin-right:15px;">
-    <i>Pictured</i>:
-    A partition of a lattice system into disjoint fragments.
-    <br><br>
-    <b><i>Background.</i></b> The fundamental difficulty of quantum 
-    many-body problems is that the complexity of the quantum wavefunction grows exponentially 
-    with the number of particles in the system. Recently, quantum embedding theories have made 
-    progress in addressing this difficulty by dividing systems into smaller fragments, which 
-    can themselves be treated with an accurate 'high-level' theory, perhaps even implemented on 
-    a quantum computer! These local problems are coupled together 
-    self-consistently via some coarse global physical quantities. 
-    <br><br>
-    <b><i>Variational embedding.</i></b> Our recently introduced 
-    <a href="https://arxiv.org/abs/1910.00560">variational embedding theory</a> is the 
-    first embedding theory which provides a guaranteed bound 
-    on the ground-state energy. However, in its original formulation as an abstract semidefinite 
-    program, the theory is hard to solve numerically. By making use of quantum embedding 
-    intuition, we have introduced a scalable <a href="https://arxiv.org/abs/2106.02682">solver</a> for 
-    this semidefinite program. This approach solves effective 'high-level' local problems in parallel, 
-    where the effective problems are 
-    determined self-consistently by updates that enforce coarse global constraints.
-    <br><br>
-    <b><i>Other embedding methods.</i></b>
-    I have also worked on improving the scaling and robustness of existing quantum embedding 
-    theories, including <a href="https://arxiv.org/abs/2003.00873">density matrix embedding theory</a> (DMET)
-    and <a href="https://arxiv.org/abs/1907.07191">dynamical mean-field theory</a> (DMFT). I am also interested in 
-    improving the mathematical understanding of <a href="https://arxiv.org/abs/1902.04796">impurity problems</a>, 
-    which are the embedded subproblems in DMFT, as well as DMFT itself.
-    </p>
-    </details>
-    <br>
-
-    
-    <details><summary><b>High-dimensional functions</b></summary>
-    <p style="margin-left:30px; font-size:14px">
-    <img src="rgn.png" width="350"  align=left style="margin-right:15px;margin-top:10px;margin-bottom:5px">
-    <i>Pictured</i>:
-    The <a href="https://arxiv.org/abs/2106.10558">Rayleigh-Gauss-Newton</a> (RGN) method exhibits fast 
-    convergence for the 1D transverse-field Ising model, maintained through the quantum phase transition at <i>h</i>=1.
-    <br><br>
-    <b><i>Background.</i></b> Many scientific computing problems can be viewed as optimization problems 
-    over functions on high-dimensional state spaces (discrete or continuous). Such problems include the ground-state 
-    eigenvalue problem for quantum many-body problems, as well as the problem of computing committor functions to  
-    characterize reaction pathways in computational chemistry. A well-chosen parametric class of functions 
-    (such as a tensor network or neural network parametrization) can make such an optimization problem 
-    tractable.
-    <br><br>
-    <b><i>Variational Monte Carlo.</i></b> Variational Monte Carlo (VMC) tackles the ground-state quantum 
-    many-body problem by optimizing the energy over a parametric class of wavefunctions. Parameter updates must 
-    be computed by sampling configurations according to the Born rule for the wavefunction. 
-    Recently, we introduced a <a href="https://arxiv.org/abs/2106.10558">Rayleigh-Gauss-Newton</a> approach to VMC optimization which improves 
-    on existing methods for recently introduced neural-network-based parametrizations.
-    <br><br>
-    <b><i>High-dimensional probability.</i></b> The committor function is a fundamental object in the study of rare transitions 
-    between metastable states of a stochastic process. We recently showed that <a href="https://arxiv.org/abs/2106.12515">tensor networks</a> can 
-    be used to compute committor functions in high dimensions, allowing us to examine rare transitions in a 1D Ginzburg-Landau theory.
-    </p>
-    </details>
-    <br>
-
-    
-    <details><summary><b>Monte Carlo sampling</b></summary>
-    <p style="margin-left:30px; font-size:14px">
-    <img src="flow.gif" width="180"  align=left style="margin-right:15px;" border="2">
-    <i>Pictured</i>:
-    Mean-field dynamics for an <a href="https://arxiv.org/abs/2106.02686">ensemble sampler</a>.
-    <br><br>
-    Monte Carlo sampling is the most flexible and widely-used tool for estimating sums and integrals in high dimensions. 
-    It plays a supporting role in Variational Monte Carlo (see <u>High-dimensional functions</u> above), where 
-    efficient sampling is crucial for wavefunction optimization. Conversely, parametric function classes can support the goal of Monte Carlo sampling. Some results in this area 
-    should be coming soon!<br><br>
-
-    I am also interested in generic sampling problems. We introduced an 
-    <a href="https://arxiv.org/abs/2106.02686">ensemble MCMC sampler</a> that can circumvent slow 
-    mixing due to metastability.
-
-    </p>
-    </details>
-    <br>
-
-    <details><summary><b>Many-body Green's functions</b></summary>
-    <p style="margin-left:30px; font-size:14px">
-    <img src="GWsumLW.png" width="720"  align=left style="margin-bottom:20px;">
-    <i>Pictured</i>:
-    Bold Feynman diagram expansion for the GW approximation to the Luttinger-Ward functional.
-    <br><br>
-    <b><i>Background.</i></b>
-    Beyond the single-particle picture of density functional theory (DFT), many of the most 
-    widely used computational methods in quantum many-body physics are based on the formalism 
-    of Green's functions, which encode response and excitation properties of a system. Many-body 
-    perturbation theory (MBPT), which expands quantities of interest perturbatively in 
-    the strength of the inter-particle interaction, defines a major category of approaches to computing 
-    Green's functions. The terms in this expansion correspond to the so-called 
-    bare Feynman diagrams. These can in turn be reorganized into a series of bold Feynman diagrams. 
-    These objects can be understood in terms of a construction called the Luttinger-Ward (LW) functional. 
-    But the construction is only formal, and recently the existence 
-    of a single-valued LW functional has been cast into doubt by theoretical and numerical evidence.
-    <br><br>
-    <b><i>Euclidean lattice field theory.</i></b> 
-    We have <i>rigorously</i> justified the LW formalism in the context of Euclidean 
-    lattice field theory. In particular, we have rigorously justified the 
-    <a href="https://arxiv.org/abs/1809.02900">combinatorial arguments</a> underlying the
-    bold diagrammatic expansion, constructed the LW functional via a 
-    <a href="https://arxiv.org/abs/1809.02901">non-perturbative argument</a>, and
-    and proved that the bold diagrammatic expansion forms an asymptotic series for the 
-    LW functional.
-
-    <br><br>
-    <b><i>DMFT.</i></b> The dynamical mean-field theory (DMFT) is a quantum embedding 
-    theory in which Green's functions play a central role. See <u>Quantum embedding</u> above for further 
-    details on theoretical and practical work in this area.
-
-    </p>
-    </details>
-    <br>
-
+    function methods.<br><br>
 
     <h2>Selected presentations</h2>
 
     <details><summary><u><span style="font-size:14px;">Expand</span></u></summary>
 
     <p style="margin-left:20px;font-size:14px">
+
+    <b>Column subset selection and Markov chain compression</b><br>
+    Brown Probability Seminar (March 2026)<br>
+<a href="slides_brown_2026.pdf">[slides]</a>
+<br><br>
+
+    <b>A mathematical analysis of stochastic density functional theory</b><br>
+    Telluride Science Workshop (June 2025)<br>
+<a href="slides_telluride_2025.pdf">[slides]</a>
+<br><br>
 
     <b>Adaptive diagonal basis sets for electronic structure</b><br>
     SciCADE (July 2024)<br>
@@ -298,7 +233,8 @@
 
     <b>Improved energies and local energies with weighted variational Monte Carlo</b><br>
     Huan Zhang, Robert J. Webber, Michael Lindsey, Timothy C. Berkelbach, and Jonathan Weare<br>
-    <a href="https://arxiv.org/abs/2507.01905">[arXiv:2507.01905]</a>
+    <i>Phys. Rev. Research</i> 8, 013213 (2026)<br>
+    <a href="https://doi.org/10.1103/6b3v-38jp">[journal]</a> <a href="https://arxiv.org/abs/2507.01905">[arXiv:2507.01905]</a>
     <br><br>
 
     <b>Toward optimal-scaling DFT: stochastic Hartree theory in the thermodynamic and complete basis set limits at arbitrary temperature</b><br>
@@ -333,8 +269,8 @@
 
     <b>A gradient-based and determinant-free framework for fully Bayesian Gaussian process regression</b><br>
     with P. Michael Kielstra<br>
-    <i>SIAM/ASA JUQ</i>, to appear<br>
-    <a href="https://arxiv.org/abs/2412.20884">[arXiv:2412.20884]</a>
+    <i>SIAM/ASA JUQ</i> 13, 1709 (2025)<br>
+    <a href="https://doi.org/10.1137/25M1724833">[journal]</a> <a href="https://arxiv.org/abs/2412.20884">[arXiv:2412.20884]</a>
     <a href="https://zenodo.org/records/14219407">[code]</a>
     <br><br>
 
@@ -371,13 +307,15 @@
     <b>Direct interpolative construction of the discrete Fourier transform as a matrix product operator
     </b><br>
     with Jielun Chen<br>
-    <a href="https://arxiv.org/abs/2404.03182">[arXiv:2404.03182]</a>
+    <i>Appl. Comput. Harmon. Anal.</i> 81, 101817 (2026)<br>
+    <a href="https://doi.org/10.1016/j.acha.2025.101817">[journal]</a> <a href="https://arxiv.org/abs/2404.03182">[arXiv:2404.03182]</a>
     <br><br>
 
     <b>Simple diagonal designs with reconfigurable real-time circuits
     </b><br>
     Yizhi Shen, Katherine Klymko, Eran Rabani, Norm M. Tubman, Daan Camps, Roel Van Beeumen, and Michael Lindsey<br>
-    <a href="https://arxiv.org/abs/2401.04176">[arXiv:2401.04176]</a>
+    <i>Phys. Rev. Research</i> 8, 013042 (2026)<br>
+    <a href="https://doi.org/10.1103/nb7c-d6kk">[journal]</a> <a href="https://arxiv.org/abs/2401.04176">[arXiv:2401.04176]</a>
     <br><br>
 
     <b>Multiscale interpolative construction of quantized tensor trains
@@ -407,6 +345,7 @@
     <b>Fast randomized entropically regularized semidefinite programming
     </b><br>
     Michael Lindsey<br>
+    Accepted <i>SIAM J. Sci. Comput.</i><br>
     <a href="https://arxiv.org/abs/2303.12133">[arXiv:2303.12133]</a>
     <br><br>
 
@@ -460,7 +399,7 @@
     <b>Multiscale semidefinite programming approach to positioning problems with pairwise structure</b><br>
     with Yian Chen and Yuehaw Khoo<br>
     <i>J. Sci. Comput.</i> 101:42 (2024)<br>
-<a href="https://arxiv.org/abs/2012.10046">[arXiv:2012.10046]</a>
+<a href="https://doi.org/10.1007/s10915-024-02676-1">[journal]</a> <a href="https://arxiv.org/abs/2012.10046">[arXiv:2012.10046]</a>
 <br><br>
 
 
@@ -605,6 +544,7 @@
     <p style="margin-left:20px;font-size:14px">
 
     <b>UC Berkeley</b><br>
+    Fall 2025: Math 170 and Math 228A<br>
     Spring 2024:<a href=https://bcourses.berkeley.edu/courses/1532627>Math 128B</a><br>
     Fall 2023: <a href=./math228a_fall2023>Math 228A</a><br>
     Spring 2023: <a href="https://bcourses.berkeley.edu/courses/1523279">Math 128B</a><br>
