@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Codon Design WASM</title>
+  <style>
+    :root {
+      --ink: #29251f;
+      --muted: #5f574c;
+      --paper: #fffaf0;
+      --panel: rgba(255, 250, 240, 0.82);
+      --line: rgba(74, 67, 57, 0.22);
+      --accent: #255f5a;
+      --accent-2: #9b4a30;
+      --shadow: 0 24px 70px rgba(40, 35, 28, 0.14);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Avenir Next", "Gill Sans", "Trebuchet MS", sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(235, 177, 78, 0.28), transparent 34rem),
+        radial-gradient(circle at 90% 15%, rgba(58, 132, 126, 0.22), transparent 36rem),
+        linear-gradient(135deg, #f4ead7 0%, #e3eadb 100%);
+    }
+    button, input, textarea, select { font: inherit; }
+    .shell {
+      width: min(1180px, calc(100vw - 34px));
+      margin: 0 auto;
+      padding: 30px 0 44px;
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 26px;
+    }
+    .brand { display: flex; flex-direction: column; gap: 3px; }
+    .eyebrow {
+      color: var(--accent-2);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino", Georgia, serif;
+      font-size: clamp(34px, 5.5vw, 72px);
+      letter-spacing: -0.055em;
+      line-height: 0.94;
+    }
+    .status-pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 14px;
+      background: rgba(255, 250, 240, 0.68);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+    .input-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.72fr);
+      gap: 24px;
+      padding: clamp(20px, 4vw, 42px);
+    }
+    .copy { display: flex; flex-direction: column; gap: 14px; justify-content: flex-start; min-height: 0; }
+    .copy p {
+      margin: 0;
+      max-width: 58ch;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.55;
+    }
+    .copy a {
+      color: var(--accent);
+      font-weight: 900;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(37, 95, 90, 0.34);
+    }
+    .warning-line { display: block; margin-top: 8px; }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .flow div {
+      min-height: 96px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.34);
+    }
+    .flow b { display: block; margin-bottom: 8px; color: var(--accent); font-size: 13px; }
+    .flow span { color: var(--muted); font-size: 13px; line-height: 1.35; }
+    form { display: flex; flex-direction: column; gap: 14px; }
+    label {
+      color: #4e463b;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .field-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+    .field-head label { margin: 0; }
+    .text-action {
+      border: 0;
+      background: transparent;
+      color: var(--accent);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      padding: 3px 0;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .text-action:hover { color: var(--accent-2); }
+    textarea, input, select {
+      width: 100%;
+      border: 1px solid rgba(74, 67, 57, 0.18);
+      border-radius: 18px;
+      padding: 13px 14px;
+      background: rgba(255, 253, 247, 0.94);
+      color: var(--ink);
+      outline: none;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+    }
+    textarea {
+      min-height: 142px;
+      resize: vertical;
+      font-family: "SF Mono", Menlo, monospace;
+      font-size: 16px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    details {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 12px;
+      background: rgba(255,255,255,0.28);
+    }
+    summary { cursor: pointer; color: var(--muted); font-weight: 800; }
+    .primary, .secondary {
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 18px;
+      cursor: pointer;
+      font-weight: 900;
+      transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+    }
+    .primary { background: #245f58; color: white; box-shadow: 0 12px 30px rgba(36, 95, 88, 0.26); }
+    .secondary {
+      background: rgba(255, 250, 240, 0.92);
+      color: var(--accent);
+      border: 1px solid rgba(37, 95, 90, 0.18);
+    }
+    .primary:hover, .secondary:hover { transform: translateY(-1px); }
+    .primary:disabled { opacity: 0.55; cursor: wait; }
+    .hidden { display: none !important; }
+    .candidate-header, .viz-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    .candidate-title { min-width: 0; flex: 1; width: 100%; }
+    .candidate-sequence-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      max-width: min(780px, 100%);
+      margin-top: 8px;
+    }
+    #candidate-aa { flex: 1; -webkit-line-clamp: 2; }
+    .candidate-sequence-row .copy-button { flex: 0 0 auto; }
+    h2 {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino", Georgia, serif;
+      font-size: clamp(26px, 3.8vw, 46px);
+      letter-spacing: -0.04em;
+    }
+    .subtle { color: var(--muted); font-size: 14px; line-height: 1.45; }
+    .cards { display: grid; grid-template-columns: repeat(5, minmax(175px, 1fr)); gap: 14px; }
+    .candidate-card {
+      position: relative;
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 18px;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .candidate-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -40px -65px auto;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: rgba(37, 95, 90, 0.13);
+    }
+    .rank {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--paper);
+      font-weight: 900;
+      font-size: 18px;
+    }
+    .rna {
+      position: relative;
+      z-index: 1;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 5;
+      overflow: hidden;
+      overflow-wrap: anywhere;
+      font-family: "SF Mono", Menlo, monospace;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+    .metrics {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .metric-row { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); padding-top: 8px; }
+    .metric-row b { color: var(--ink); }
+    .viz-layout { display: grid; grid-template-columns: minmax(0, 1fr) 310px; gap: 18px; align-items: start; }
+    .svg-panel { position: relative; width: 100%; padding: 0; overflow: hidden; }
+    .svg-panel.loading { min-height: 360px; display: grid; place-items: center; }
+    .svg-stage {
+      width: 100%;
+      padding: 56px 18px 18px;
+      opacity: 0;
+      transform: scale(0.995);
+      transition: opacity 450ms ease, transform 450ms ease;
+    }
+    .svg-stage.visible { opacity: 1; transform: none; }
+    .svg-stage.fade-out { opacity: 0; transform: scale(0.99); transition-duration: 350ms; }
+    .svg-view { display: none; width: 100%; line-height: 0; justify-content: center; }
+    .svg-view.active { display: flex; }
+    .svg-view svg { display: block; max-width: 100%; width: 100%; height: auto; margin: 0 auto; }
+    .structure-toggle {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 3;
+      border: 1px solid rgba(37, 95, 90, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 250, 240, 0.92);
+      color: var(--accent);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 900;
+      padding: 8px 11px;
+      box-shadow: 0 8px 20px rgba(40, 35, 28, 0.10);
+    }
+    .side-panel { padding: 20px; display: grid; gap: 14px; }
+    .mono { font-family: "SF Mono", Menlo, monospace; overflow-wrap: anywhere; font-size: 13px; line-height: 1.35; }
+    .truncate { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; overflow: hidden; }
+    .copy-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .copy-button {
+      border: 1px solid rgba(37, 95, 90, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 250, 240, 0.86);
+      color: var(--accent);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 900;
+      padding: 7px 10px;
+    }
+    .copy-button.copied { color: white; background: var(--accent); }
+    .error {
+      margin-top: 14px;
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(155, 74, 48, 0.11);
+      color: #7e3523;
+      border: 1px solid rgba(155, 74, 48, 0.25);
+      white-space: pre-wrap;
+    }
+    .loader { display: inline-flex; align-items: center; gap: 10px; color: var(--muted); font-weight: 800; }
+    .spinner {
+      width: 18px;
+      height: 18px;
+      border: 3px solid rgba(37, 95, 90, 0.18);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 800ms linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @media (max-width: 920px) {
+      .input-panel, .viz-layout { grid-template-columns: 1fr; }
+      .flow, .cards { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .topbar, .candidate-header, .viz-header { align-items: flex-start; flex-direction: column; }
+      .flow, .cards, .grid-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="topbar">
+      <div class="brand">
+        <div class="eyebrow">Stability-driven</div>
+        <h1>Codon design</h1>
+      </div>
+      <div id="status-pill" class="status-pill">single-thread WASM</div>
+    </div>
+
+    <section id="input-page" class="panel input-panel">
+      <div class="copy">
+        <div>
+          <p>RNA codes for proteins. But for a given protein, the number of RNA sequences coding for it grows exponentially with length. Such “synonymous” choices can differ dramatically in their structure and stability. This application samples stable coding sequences for a target amino-acid sequence and visualizes their likely structures, illustrating how fast algorithms can turn the huge design space into concrete RNA candidates. For background and example sequences, see the <a href="https://arxiv.org/abs/2604.19718" target="_blank" rel="noreferrer">preprint</a>.<span class="warning-line"><strong>Warning:</strong> Costs grow quickly beyond a couple hundred amino acids. This browser build is single-thread CPU-WASM and does all computation on the visitor's machine.</span></p>
+        </div>
+        <div class="flow">
+          <div><b>1. sample</b><span>Draw RNAs compatible with the protein in the browser.</span></div>
+          <div><b>2. rank</b><span>Deduplicate and keep the lowest-scoring candidates.</span></div>
+          <div><b>3. choose</b><span>Inspect top RNAs in rank order.</span></div>
+          <div><b>4. visualize</b><span>Render sampled dot-bracket structures locally.</span></div>
+        </div>
+      </div>
+
+      <form id="design-form">
+        <div>
+          <div class="field-head">
+            <label for="psi">Amino-acid sequence</label>
+            <button id="random-psi" class="text-action" type="button">random example</button>
+          </div>
+          <textarea id="psi" spellcheck="false"></textarea>
+        </div>
+
+        <details>
+          <summary>Run settings</summary>
+          <div class="grid-2" style="margin-top: 14px;">
+            <div><label for="rna-samples">RNA samples</label><input id="rna-samples" type="number" min="1" value="2000"></div>
+            <div><label for="top-k">Top candidates</label><input id="top-k" type="number" min="1" value="5"></div>
+            <div><label for="structure-samples">Structures / candidate</label><input id="structure-samples" type="number" min="0" value="1000"></div>
+            <div><label for="seed">Seed</label><input id="seed" type="number" min="0" value="123"></div>
+            <div><label for="ranking-mode">Ranking mode</label><select id="ranking-mode"><option value="auto">auto</option><option value="exact">exact</option><option value="fast">fast</option></select></div>
+            <div><label for="rank-pool">Fast rank pool</label><input id="rank-pool" type="number" min="1" value="20"></div>
+          </div>
+        </details>
+
+        <button id="run-button" class="primary" type="submit">Run in browser</button>
+        <div id="input-error" class="error hidden"></div>
+        <div id="input-loader" class="loader hidden"><span class="spinner"></span><span>Running WASM backend...</span></div>
+      </form>
+    </section>
+
+    <section id="candidate-page" class="hidden">
+      <div class="candidate-header">
+        <div class="candidate-title">
+          <h2>Top RNA candidates</h2>
+          <div class="candidate-sequence-row">
+            <div id="candidate-aa" class="mono subtle truncate"></div>
+            <button id="candidate-aa-copy" class="copy-button hidden" type="button" data-copy-target="candidate-aa">copy AA</button>
+          </div>
+          <div id="run-summary" class="subtle"></div>
+        </div>
+        <button id="new-sequence" class="secondary">New sequence</button>
+      </div>
+      <div id="candidate-cards" class="cards"></div>
+    </section>
+
+    <section id="viz-page" class="hidden">
+      <div class="viz-header">
+        <div>
+          <h2 id="viz-title">Candidate</h2>
+          <div id="viz-subtitle" class="subtle"></div>
+        </div>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <button id="back-candidates" class="secondary">Back to candidates</button>
+          <button id="back-input" class="secondary">New sequence</button>
+        </div>
+      </div>
+      <div class="viz-layout">
+        <div id="svg-panel" class="panel svg-panel loading">
+          <div class="loader"><span class="spinner"></span><span>Rendering structure...</span></div>
+        </div>
+        <aside class="panel side-panel">
+          <button id="refresh-structure" class="primary">Random refresh</button>
+          <div class="subtle" id="structure-meta"></div>
+          <div>
+            <div class="copy-head">
+              <label>RNA</label>
+              <button class="copy-button" type="button" data-copy-target="viz-rna">copy</button>
+            </div>
+            <div id="viz-rna" class="mono truncate"></div>
+          </div>
+          <div>
+            <div class="copy-head">
+              <label>AA</label>
+              <button class="copy-button" type="button" data-copy-target="viz-aa">copy</button>
+            </div>
+            <div id="viz-aa" class="mono truncate"></div>
+          </div>
+          <div class="metrics" id="viz-metrics"></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script src="codon_design_run.js"></script>
+  <script src="vienna_render.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
