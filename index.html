@@ -1,644 +1,441 @@
-<!DOCTYPE html>
-<html>
-
-  <head>
-    <title>Michael Lindsey's home page</title>
-  </head>
-
-  <body style="margin-top: 25px; margin-left: 25px; margin-right: 0px;"></body>
-  
-
-
-    <div style="max-width:750px; word-wrap:break-word;">
-
-    <p>
-
-    <img src="lindseyPic4.jpeg" width="255"  align=left style="margin-right:25px;" border="2">
-
-    <font face="Georgia">
-
-    
-    <h1>Michael Lindsey</h1>
-    <p style="font-size:14px;">
-    <b>Email:</b> lastname at berkeley dot edu
-    <br><br>
-    <b>Office:</b> 1089 Evans Hall
-    <br><br>
-    
-    <b>Background:</b> I am an Assistant Professor in the Department of Mathematics at UC Berkeley, as well as a 
-    Faculty Scientist in the Mathematics Group at Lawrence Berkeley National Laboratory. I am also currently a Sloan Research Fellow.
-    Here is my <a href="cvLindsey.pdf">CV</a> (4/2026).<br><br>
-
-    <b>Research interests:</b> My research develops scalable algorithms for high-dimensional scientific computation, 
-    drawing on numerical linear algebra, optimization, Monte Carlo methods, and machine learning. I am especially 
-    interested in stochastic dynamics and reduced models for chemical systems, structured numerical methods for 
-    quantum chemistry and fluid dynamics, and inference and sampling in high dimensions. Recent applications range across 
-    quantum chemistry, condensed matter physics, fluid mechanics, Bayesian uncertainty quantification, and RNA sequence design.
-    <br><br>
-
-    </p>
-
-    <h2>Selected research directions</h2>
-    <span style="font-size:14px;">
-    Click titles to expand.<br><br>
-    </span>
-    
-    <details><summary><b>Stochastic dynamics</b></summary>
-    <p style="margin-left:30px; font-size:14px">
-
-    Across a wide range of applications in the physical and data sciences, the computational 
-    study of Markov chains over large state spaces motivates practitioners to distill the dynamics 
-    into a reduced model over a smaller state space, with a view toward preserving the key long-timescale 
-    properties of the original chain. Motivated by the challenge of building a solid theoretical framework 
-    for such Markov state models, our <a href="https://arxiv.org/abs/2506.22918">recent work</a> introduces a rigorous and comprehensive 
-    approximation theory for the compression of a general reversible Markov chain, bounding the 
-    compression error with respect to the full dynamical evolution. This work connects with our advances in 
-    <a href="https://arxiv.org/abs/2407.01698">column subset selection</a> which offer strong <i>a priori</i> guarantees for the compression.
-
-    
-
-
-    </p>
-    </details>
-    <br>
-
-    <details><summary><b>Rank-structured matrix and tensor computations</b></summary>
-    <p style="margin-left:30px; font-size:14px">
-
-    Low-rank structure plays a fundamental role in scientific computation. Recent directions include column subset selection for <a href="https://arxiv.org/abs/2407.01698">matrix</a> as well as 
-    <a href="https://arxiv.org/abs/2503.18921">tensor</a> decompositions, constructions of <a href="https://arxiv.org/abs/2311.12554">quantized tensor trains</a> and <a href="https://arxiv.org/abs/2404.03182">related operators</a>, a sketching-based approach to <a href="https://arxiv.org/abs/2202.11788">generative 
-        modeling</a> with tensor networks, and calculation of <a href="https://arxiv.org/abs/2106.12515">committor functions</a> for high-dimensional stochastic processes. Even our recent efforts in developing <a href="https://arxiv.org/abs/2504.13373">adaptive multigrid solvers</a>, 
-        which flexibly adapt to a variety of numerical PDE, and <a href="https://arxiv.org/abs/2502.03645">neural samplers</a> 
-        are grounded in randomized low-rank numerical linear algebra.
-    </p>
-    </details>
-    <br>
-
-
-    <details><summary><b>Entropy-regularized convex programming</b></summary>
-    <p style="margin-left:30px; font-size:14px">
-
-    One recent <a href="https://arxiv.org/abs/2303.12133">work</a> introduces entropy regularization as a general strategy to obtain 
-    nearly-optimal scaling solvers for SDP, without any rank assumptions, by using the von Neumann 
-    entropy as a regularizer. The resulting dual problem 
-    can be approached using matrix-free randomized trace estimation techniques, combining 
-    tools from numerical analysis and randomized numerical linear algebra. See <a href="https://arxiv.org/abs/2506.09711">this paper</a> for a general 
-    convergence analysis and <a href="https://arxiv.org/abs/2506.20191">this paper</a> for 
-    detailed application to the hard problem of permutation synchronization.<br><br>
-
-    These directions also connect with recent work on <a href="https://arxiv.org/abs/2504.15816">stochastic density functional theory</a>, which puts forward 
-    a theoretically justified algorithmic framework for DFT with optimal computational scaling.
-
-    </p>
-    </details>
-    <br>
-
-    <details><summary><b>Monte Carlo sampling and learning</b></summary>
-    <p style="margin-left:30px; font-size:14px">
-
-    Monte Carlo sampling is the most flexible and widely-used tool for estimating sums and integrals in high dimensions. I am 
-    interested in developing generic sampling techniques such as this <a href="https://arxiv.org/abs/2106.02686">ensemble MCMC sampler</a> that can circumvent slow 
-    mixing due to metastability, 
-    as well as specialized method development in quantum Monte Carlo, e.g., 
-    <a href="https://arxiv.org/abs/2204.14241">scale-invariant HMC</a> for condensed matter field theories.<br><br>
-        
-    Meanwhile, I am interested in new approaches to <a href="https://arxiv.org/abs/2502.03645">neural sampling</a> using diffusion processes, as well as topics in 
-    generative modeling, including <a href="https://arxiv.org/abs/2310.03695">multimarginal generative modeling</a> and <a href="https://arxiv.org/abs/2202.11788">tensor network</a> approaches.
-    </p>
-    </details>
-    <br>
-
-    <details><summary><b>Fast linear solvers and adaptive discretization of quantum chemistry</b></summary>
-    <p style="margin-left:30px; font-size:14px">
-
-    Motivated by the need for quantum chemistry basis sets that adapt to problem geometry while enabling fast computation, we 
-    have introduced several approaches to structured discretization for electronic structure, including <a href="https://arxiv.org/abs/2309.10704">nested gausslets </a> and 
-    <a href="https://arxiv.org/abs/2407.06171">adaptive grid deformation</a>. More recent efforts define a new <a href="https://arxiv.org/abs/2510.21213">discontinuous Galerkin framework</a>
-    for electronic structure, coupled to fast multigrid solvers. In fact, parallel efforts in developing <a href="https://arxiv.org/abs/2504.13373">adaptive multigrid techniques</a> point to 
-    flexible automatic approaches for computational PDEs more broadly.
-
-    </p>
-    </details>
-    <br>
-
-
-
-    <h2>Pedagogical materials</h2>
-    <p style="font-size:14px">
-
-    I have written a text on algorithms for <a href="optimization.pdf">continuous optimization</a>, tying together various perspectives from the convex analysis, machine learning, 
-    theoretical computer science, and scientific computing communities. I hope you find it useful!<br><br>
-
-    For an introduction to quantum many-body physics written for an applied math audience, see 
-    my <a href="dissertationLindsey.pdf">dissertation</a> (8/2019) and in particular the <a href="dissertationBackground.pdf">first part</a>. 
-    Also see <a href="https://www.youtube.com/watch?v=9wClPIIK9jE">this talk</a> for a tutorial on many-body perturbation theory and Green's 
-    function methods.<br><br>
-
-    <h2>Selected presentations</h2>
-
-    <details><summary><u><span style="font-size:14px;">Expand</span></u></summary>
-
-    <p style="margin-left:20px;font-size:14px">
-
-    <b>Column subset selection and Markov chain compression</b><br>
-    Brown Probability Seminar (March 2026)<br>
-<a href="slides_brown_2026.pdf">[slides]</a>
-<br><br>
-
-    <b>A mathematical analysis of stochastic density functional theory</b><br>
-    Telluride Science Workshop (June 2025)<br>
-<a href="slides_telluride_2025.pdf">[slides]</a>
-<br><br>
-
-    <b>Adaptive diagonal basis sets for electronic structure</b><br>
-    SciCADE (July 2024)<br>
-<a href="slides_scicade_2024.pdf">[slides]</a>
-<br><br>
-
-    <b> Direct interpolative construction of quantized tensor trains</b><br>
-    Tensor4All Meeting (April 2024)<br>
-<a href="slides_tensor4all_2024.pdf">[slides]</a>
-<br><br>
-
-    <b> Interacting ensemble MCMC and fast entropically regularized SDP</b><br>
-    Mathematics of Data and Decisions at UC Davis (MADDD) Seminar (November 2023)<br>
-<a href="slides_davis_2023.pdf">[slides]</a>
-<br><br>
-
-    <b>Efficient sampling for lattice QMC</b><br>
-    Julian Schwinger Foundation Workshop on the Fermion Sign Problem (July 2023)<br>
-<a href="slides_jsf_fsp_2023.pdf">[slides]</a>
-<br><br>
-
-    <b>Scalable variational embedding for quantum many-body problems</b><br>
-    SIAM Conference on Mathematical Aspects of Materials Science (May 2021)<br>
-<a href="slides_var_emb_ms_talk.pdf">[slides]</a>
-<br><br>
-
-    <b>Optimization for variational Monte Carlo with neural quantum states</b><br>
-    Modeling and Simulation Group Seminar: Machine Learning in Science at NYU (April 2021)<br>
-<a href="slides_vmc_msg.pdf">[slides]</a>
-<br><br>
-
-    <b>Optimal transport via a Monge-Amp&egrave;re optimization problem</b><br>
-    SIAM Conference on the Mathematics of Data Science (May 2020)<br>
-<a href="slides_mongeAmpere.pdf">[slides]</a>
-<br><br>
-
-    <b>Toward sharp error analysis of extended Langrangian molecular dynamics for polarizable force field simulation</b><br>
-    Ki-Net Young Researchers Workshop (October 2019)<br>
-    <a href="slides_ki_net_oct2019.pdf">[slides]</a>
-    <br><br>
-
-    <b>Semidefinite relaxation of multi-marginal optimal transport, with application to strictly correlated electrons in second quantization</b><br>
-    ICIAM (July 2019)<br>
-    <a href="slides_iciam2019.pdf">[slides]</a>
-    <br><br>
-
-    <b>A classical statistical mechanics approach to understanding Green's function methods and the Luttinger-Ward formalism</b><br>
-    Oberwolfach (March 2018)<br>
-    <a href="slides_oberwolfach_2018.pdf">[slides]</a>
-    <br><br>
-
-    <b>Adaptive compression for Hartree-Fock-like equations</b><br>
-    SIAM Conference on Applied Linear Algebra (May 2018)<br>
-    <a href="slides_siam_ala_2018.pdf">[slides]</a>
-
-    </p>
-    </details>
-    <br>
-
-
-
-
-
-
-    <h2>Publications and preprints</h2>
-
-    <p style="margin-left:10px;font-size:14px">
-
-    <b>GoForth: Language Models for RNA Design under Structure, Sequence, and Coding Constraints</b><br>
-    Michael Lindsey<br>
-    <a href="https://arxiv.org/abs/2605.07608">[arXiv:2605.07608]</a> 
-    <br><br>
-    
-    <b>Direct RNA sequence design under codon constraints using expressive tensor-based secondary structure models</b><br>
-    Mark Fornace, Christina Wuyan Wang, and Michael Lindsey<br>
-    <a href="https://arxiv.org/abs/2604.19718">[arXiv:2604.19718]</a> 
-    <br><br>
-
-    <b>Fast adaptive discontinuous basis sets for electronic structure</b><br>
-    Yulong Pan and Michael Lindsey<br>
-    <a href="https://arxiv.org/abs/2510.21213">[arXiv:2510.21213]</a> 
-    <br><br>
-
-    <b>An approximation theory for Markov chain compression</b><br>
-    with Mark Fornace<br>
-    <a href="https://arxiv.org/abs/2506.22918">[arXiv:2506.22918]</a> 
-    <br><br>
-
-    <b>Fast entropy-regularized SDP relaxations for permutation synchronization</b><br>
-    with Yunpeng Shi<br>
-    <a href="https://arxiv.org/abs/2506.20191">[arXiv:2506.20191]</a> 
-    <br><br>
-
-    <b>Non-Euclidean dual gradient ascent for entropically regularized linear and semidefinite programming</b><br>
-    with Yuhang Cai<br>
-    <a href="https://arxiv.org/abs/2506.09711">[arXiv:2506.09711]</a> 
-    <a href="https://github.com/willcai7/NonEuclidean-GD">[code]</a>
-    <br><br>
-
-    <b>Improved energies and local energies with weighted variational Monte Carlo</b><br>
-    Huan Zhang, Robert J. Webber, Michael Lindsey, Timothy C. Berkelbach, and Jonathan Weare<br>
-    <i>Phys. Rev. Research</i> 8, 013213 (2026)<br>
-    <a href="https://doi.org/10.1103/6b3v-38jp">[journal]</a> <a href="https://arxiv.org/abs/2507.01905">[arXiv:2507.01905]</a>
-    <br><br>
-
-    <b>Toward optimal-scaling DFT: stochastic Hartree theory in the thermodynamic and complete basis set limits at arbitrary temperature</b><br>
-    with Yuhang Cai<br>
-    <a href="https://arxiv.org/abs/2504.15816">[arXiv:2504.15816]</a> 
-    <a href="https://github.com/willcai7/MirrorDescent-DFT">[code]</a>
-    <br><br>
-    
-    <b>Geometric adaptive smoothed aggregation multigrid for discontinuous Galerkin discretisations</b><br>
-    Yulong Pan, Michael Lindsey, and Per-Olof Persson<br>
-    <a href="https://arxiv.org/abs/2504.13373">[arXiv:2504.13373]</a>
-    <a href="https://github.com/yllpan/adaptiveMG">[code]</a>
-    <br><br>
-    
-    <b>Fast and accurate interpolative decompositions for general, sparse, and structured tensors</b><br>
-    Yifan Zhang, Mark Fornace, and Michael Lindsey<br>
-    <a href="https://arxiv.org/abs/2503.18921">[arXiv:2503.18921]</a> 
-    <a href="https://github.com/yifan8/TensorID">[code]</a>
-    <br><br>
-
-    <b>Implicit bias of gradient descent for non-homogeneous deep networks</b><br>
-    Yuhang Cai, Kangjie Zhou, Jingfeng Wu, Song Mei, Michael Lindsey, and Peter L. Bartlett<br>
-    ICML 2025<br>
-    <a href="https://arxiv.org/abs/2502.16075">[arXiv:2502.16075]</a> 
-    <br><br>
-
-    <b>MNE: overparametrized neural evolution with applications to diffusion processes and sampling</b><br>
-    Michael Lindsey<br>
-    <a href="https://arxiv.org/abs/2502.03645">[arXiv:2502.03645]</a> 
-    <a href="./mne">[code]</a>
-    <br><br>
-
-    <b>A gradient-based and determinant-free framework for fully Bayesian Gaussian process regression</b><br>
-    with P. Michael Kielstra<br>
-    <i>SIAM/ASA JUQ</i> 13, 1709 (2025)<br>
-    <a href="https://doi.org/10.1137/25M1724833">[journal]</a> <a href="https://arxiv.org/abs/2412.20884">[arXiv:2412.20884]</a>
-    <a href="https://zenodo.org/records/14219407">[code]</a>
-    <br><br>
-
-    <b>Fast and spectrally accurate construction of adaptive diagonal basis sets for electronic structure
-    </b><br>
-    with Sandeep Sharma<br>
-    <i>J. Chem. Phys.</i> 161, 214111 (2024)<br>
-    <a href="https://doi.org/10.1063/5.0232181">[journal]</a> 
-    <a href="https://arxiv.org/abs/2407.06171">[arXiv:2407.06171]</a>
-    <br><br>
-
-    <b>Gaussian process regression with log-linear scaling for common non-stationary kernels</b><br>
-    with P. Michael Kielstra<br>
-    <i>Appl. Comput. Harmon. Anal.</i> 79, 101792 (2025)<br>
-    <a href="https://doi.org/10.1016/j.acha.2025.101792">[journal]</a>
-    <a href="https://arxiv.org/abs/2407.03608">[arXiv:2407.03608]</a> 
-    <a href="https://zenodo.org/records/15086277">[code]</a>
-    <br><br>
-
-    <b>Column and row subset selection using nuclear scores: algorithms and theory for Nystr&oumlm approximation, CUR decomposition, and graph Laplacian reduction
-    </b><br>
-    with Mark Fornace<br>
-    <a href="https://arxiv.org/abs/2407.01698">[arXiv:2407.01698]</a> 
-    <a href="https://github.com/mfornace/nuclear-score-maximization">[code]</a>
-    <br><br>
-
-    <b>Large stepsize gradient descent for non-homogeneous two-layer networks: margin improvement and fast optimization
-    </b><br>
-    Yuhang Cai, Jingfeng Wu, Song Mei, Michael Lindsey, and Peter L. Bartlett<br>
-    NeurIPS 2024<br>
-    <a href="https://neurips.cc/virtual/2024/poster/94399">[conference]</a> <a href="https://arxiv.org/abs/2406.08654">[arXiv:2406.08654]</a>
-    <br><br>
-
-    <b>Direct interpolative construction of the discrete Fourier transform as a matrix product operator
-    </b><br>
-    with Jielun Chen<br>
-    <i>Appl. Comput. Harmon. Anal.</i> 81, 101817 (2026)<br>
-    <a href="https://doi.org/10.1016/j.acha.2025.101817">[journal]</a> <a href="https://arxiv.org/abs/2404.03182">[arXiv:2404.03182]</a>
-    <br><br>
-
-    <b>Simple diagonal designs with reconfigurable real-time circuits
-    </b><br>
-    Yizhi Shen, Katherine Klymko, Eran Rabani, Norm M. Tubman, Daan Camps, Roel Van Beeumen, and Michael Lindsey<br>
-    <i>Phys. Rev. Research</i> 8, 013042 (2026)<br>
-    <a href="https://doi.org/10.1103/nb7c-d6kk">[journal]</a> <a href="https://arxiv.org/abs/2401.04176">[arXiv:2401.04176]</a>
-    <br><br>
-
-    <b>Multiscale interpolative construction of quantized tensor trains
-    </b><br>
-    Michael Lindsey<br>
-    <a href="https://arxiv.org/abs/2311.12554">[arXiv:2311.12554]</a>
-    <br><br>
-
-    
-    <b>Multimarginal generative modeling with stochastic interpolants
-    </b><br>
-    with Michael S. Albergo, Nicholas M. Boffi, and Eric Vanden-Eijnden<br>
-    ICLR 2024<br>
-    <a href="https://openreview.net/pdf?id=FHqAzWl2wE">[conference]</a> <a href="https://arxiv.org/abs/2310.03695">[arXiv:2310.03695]</a>
-    <br><br>
-
-
-    <b>Nested gausslet basis sets
-    </b><br>
-    Steven R. White and Michael Lindsey<br>
-    <i>J. Chem. Phys.</i> 159, 234112 (2023)<br>
-    <a href="https://doi.org/10.1063/5.0180092">[journal]</a> 
-    <a href="https://arxiv.org/abs/2309.10704">[arXiv:2309.10704]</a>
-    <br><br>
-    
-
-    <b>Fast randomized entropically regularized semidefinite programming
-    </b><br>
-    Michael Lindsey<br>
-    Accepted <i>SIAM J. Sci. Comput.</i><br>
-    <a href="https://arxiv.org/abs/2303.12133">[arXiv:2303.12133]</a>
-    <br><br>
-
-    <b>Understanding and eliminating spurious modes in variational Monte Carlo using collective variables</b><br>
-    Huan Zhang, Robert J. Webber, Michael Lindsey, Timothy C. Berkelbach, and Jonathan Weare<br>
-    <i>Phys. Rev. Research</i> 5, 023101 (2023)<br>
-    <a href="https://doi.org/10.1103/PhysRevResearch.5.023101">[journal]</a> 
-    <a href="https://arxiv.org/abs/2211.09767">[arXiv:2211.09767]</a>
-    <br><br>
-
-    <b>Non-Hertz-Millis scaling of the antiferromagnetic quantum critical metal via scalable Hybrid Monte Carlo </b><br>
-    Peter Lunts, Michael S. Albergo, and Michael Lindsey<br>
-    <i>Nat. Commun.</i> 14, 2547 (2023)<br>
-    <a href="https://doi.org/10.1038/s41467-023-37686-4">[journal]</a> 
-    <a href="https://arxiv.org/abs/2204.14241">[arXiv:2204.14241]</a>
-    <br><br>
-    
-    <b>Generative modeling via tensor train sketching</b><br>
-    YoonHaeng Hur, Jeremy G. Hoskins, Michael Lindsey, E.M. Stoudenmire, and Yuehaw Khoo<br>
-    <i>Appl. Comput. Harmon. Anal.</i> 67, 101575 (2023)<br>
-    <a href="https://doi.org/10.1016/j.acha.2023.101575">[journal]</a> 
-    <a href="https://arxiv.org/abs/2202.11788">[arXiv:2202.11788]</a>
-    <br><br>
-    
-    <b>Committor functions via tensor networks</b><br>
-    with Yian Chen, Jeremy Hoskins, and Yuehaw Khoo<br>
-    <i>J. Comput. Phys.</i> 472, 111646 (2023)<br>
-    <a href="https://doi.org/10.1016/j.jcp.2022.111646">[journal]</a> 
-    <a href="https://arxiv.org/abs/2106.12515">[arXiv:2106.12515]</a>
-    <br><br>
-
-    <b>Rayleigh-Gauss-Newton optimization with enhanced sampling for variational Monte Carlo</b><br>
-    Robert J. Webber and Michael Lindsey<br>
-    <i>Phys. Rev. Research</i> 4, 033099 (2022)<br>
-    <a href="https://doi.org/10.1103/PhysRevResearch.4.033099">[journal]</a> 
-    <a href="https://arxiv.org/abs/2106.10558">[arXiv:2106.10558]</a>
-    <br><br>
-    
-    <b>Ensemble Markov chain Monte Carlo with teleporting walkers</b><br>
-    with Jonathan Weare and Anna Zhang<br>
-    <i>SIAM/ASA JUQ</i> 10, 860 (2022)<br>
-    <a href="https://doi.org/10.1137/21M1425062">[journal]</a> <a href="https://arxiv.org/abs/2106.02686">[arXiv:2106.02686]</a>
-<br><br>
-
-    <b>Scalable semidefinite programming approach to variational embedding for quantum many-body problems</b><br>
-    with Yuehaw Khoo<br>
-    <i>J. Comput. Phys.</i> 510, 113041 (2024)<br>
-    <a href="https://doi.org/10.1016/j.jcp.2024.113041">[journal]</a> <a href="https://arxiv.org/abs/2106.02682">[arXiv:2106.02682]</a>
-<br><br>
-
-    <b>Multiscale semidefinite programming approach to positioning problems with pairwise structure</b><br>
-    with Yian Chen and Yuehaw Khoo<br>
-    <i>J. Sci. Comput.</i> 101:42 (2024)<br>
-<a href="https://doi.org/10.1007/s10915-024-02676-1">[journal]</a> <a href="https://arxiv.org/abs/2012.10046">[arXiv:2012.10046]</a>
-<br><br>
-
-
-    <b>Towards sharp error analysis of extended Lagrangian molecular dynamics</b><br>
-    with Dong An and Lin Lin<br>
-    <i>J. Comput. Phys.</i> 466, 111403 (2022)<br>
-    <a href="https://doi.org/10.1016/j.jcp.2022.111403">[journal]</a>
-    <a href="https://arxiv.org/abs/2010.07508">[arXiv:2010.07508]</a>
-<br><br>
-
-
-    <b>Enhancing robustness and efficiency of density matrix embedding theory via semidefinite programming and local correlation potential fitting</b><br>
-    Xiaojie Wu, Michael Lindsey, Tiangang Zhou, Yu Tong, and Lin Lin<br>
-    <i>Phys. Rev. B</i> 102, 085123 (2020)
-    <br>
-    <a href="https://doi.org/10.1103/PhysRevB.102.085123">[journal]</a> 
-<a href="https://arxiv.org/abs/2003.00873">[arXiv:2003.00873]</a>
-<br>
-(Note: Editor's Suggestion.)
-<br>
-<br>
-
-
-    <b>Variational embedding for quantum many-body problems</b><br>
-    with Lin Lin<br>
-    <i>Comm. Pure Appl. Math.</i> 75, 2033 (2022)
-    <br>
-    <a href="https://doi.org/10.1002/cpa.21984">[journal]</a> <a href="https://arxiv.org/abs/1910.00560">[arXiv:1910.00560]</a>
-    <br>
-    <br>
-    
-    <b>Efficient hybridization fitting for dynamical mean-field theory via semi-definite relaxation</b><br>
-    Carlos Mejuto-Zaera, Leonardo Zepeda-N&uacute;&ntilde;ez, Michael Lindsey, Norm Tubman, Birgitta Whaley, and Lin Lin<br>
-    <i>Phys. Rev. B</i> 101, 035143 (2020)
-    <br>
-    <a href="https://doi.org/10.1103/PhysRevB.101.035143">[journal]</a>
-    <a href="https://arxiv.org/abs/1907.07191">[arXiv:1907.07191]</a>
-    <br>
-    <br>
-    
-    <b>Semidefinite relaxation of multi-marginal optimal transport for strictly correlated electrons in second quantization</b><br>
-    with Yuehaw Khoo, Lin Lin, and Lexing Ying<br>
-    <i>SIAM J. Sci. Comput.</i> 42, B1462 (2020)
-    <br>
-    <a href="https://doi.org/10.1137/20M1310977">[journal]</a> 
-    <a href="https://arxiv.org/abs/1905.08322">[arXiv:1905.08322]</a>
-    <br>
-    <br>
-    
-    
-    <b>Projected density matrix embedding theory with applications to the two-dimensional Hubbard model</b><br>
-    Xiaojie Wu, Zhi-Hao Cui, Yu Tong, Michael Lindsey, Garnet Kin-Lic Chan, and Lin Lin<br>
-    <i>J. Chem. Phys.</i> 151, 064108 (2019)
-    <br>
-    <a href="https://doi.org/10.1063/1.5108818">[journal]</a> 
-<a href="https://arxiv.org/abs/1905.00886">[arXiv:1905.00886]</a>
-<br>
-<br>
-
-    
-    <b>Sparsity pattern of the self-energy for classical and quantum impurity problems</b><br>
-    with Lin Lin<br>
-    <i>Ann. Henri Poincar&eacute;</i> 21, 2219 (2020)
-    <br>
-    <a href="https://doi.org/10.1007/s00023-020-00917-1">[journal]</a> 
-<a href="https://arxiv.org/abs/1902.04796">[arXiv:1902.04796]</a>
-<br>
-<br>
-
-    <b>Bold Feynman diagrams and the Luttinger-Ward formalism via Gibbs measures. Part II: Non-perturbative analysis</b><br>
-    with Lin Lin<br>
-    <i>Arch. Ration. Mech. Anal.</i> 242, 527 (2021)
-<br>
-<a href="https://doi.org/10.1007/s00205-021-01691-y">[journal]</a> 
-<a href="https://arxiv.org/abs/1809.02901">[arXiv:1809.02901]</a>
-<br><br>
-
-    <b>Bold Feynman diagrams and the Luttinger-Ward formalism via Gibbs measures. Part I: Perturbative approach</b><br>
-    with Lin Lin<br>
-    <i>Arch. Ration. Mech. Anal.</i> 242, 581 (2021)
-<br>
-<a href="https://doi.org/10.1007/s00205-021-01692-x">[journal]</a> 
-<a href="https://arxiv.org/abs/1809.02900">[arXiv:1809.02900]</a>
-<br><br>
-    
-    <b>Variational structure of Luttinger-Ward formalism and bold diagrammatic expansion for Euclidean lattice field theory</b><br>
-    with Lin Lin<br>
-    <i>Proc. Natl. Acad. Sci.</i> 115, 2282 (2018)
-<br>
-    <a href="https://doi.org/10.1073/pnas.1720782115">[journal]</a>
-    <a href="VariationLW.pdf">[.pdf]</a> <a href="VariationLW_support.pdf">[supporting info]</a>
-<br><br>
-    
-    <b>Convergence of adaptive compression methods for Hartree-Fock-like equations</b><br>
-    with Lin Lin<br>
-    <i>Comm. Pure Appl. Math.</i> 72, 451 (2019)
-<br>
-<a href="https://doi.org/10.1002/cpa.21784">[journal]</a> <a href="https://arxiv.org/abs/1703.05441">[arXiv:1703.05441]</a>
-<br><br>
-
-    <b>Optimal transport via a Monge-Amp&egrave;re optimization problem</b><br>
-    with Yanir A. Rubinstein<br>
-    <i>SIAM J. Math. Anal.</i> 49, 3073 (2017)
-<br>
-<a href="https://doi.org/10.1137/16M1071560">[journal]</a> <a href="OT_MAOP.pdf">[.pdf]</a>
-<br>
-(Note: recognized with the 
-<a href="https://sinews.siam.org/Details-Page/july-2019-prize-spotlight#Michael"> SIAM Student Paper Prize<a>.)
-<br><br>
-
-    <b>On discontinuity of planar optimal transport maps</b><br>
-    with Otis Chodosh, Vishesh Jain, Lyuboslav Panchev, and Yanir A. Rubinstein<br>
-    <i>Journal of Topology and Analysis</i> 07, 239 (2015)<br>
-
-<a href="https://doi.org/10.1142/S1793525315500089">[journal]</a> <a href="http://arxiv.org/abs/1312.2929">[arXiv:1312.2929]</a>
-<br>
-(Note: research carried out during 
-<a href="http://mathematics.stanford.edu/academics/undergraduate/undergraduate-research/#SURIM">SURIM</a> 2012.)
-    <br><br>
-
-    <b>Infrared imagery of streak formation in a breaking wave</b><br>
-    Ivan Savelyev, Robert A. Handler, and  Michael Lindsey<br>
-    <i>Physics of Fluids</i> 24, 121701 (2012)<br>
-<a href="https://doi.org/10.1063/1.4769459">[journal]</a>
-
-</p><br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h2>Teaching</h2>
-    <details><summary><u><span style="font-size:14px;">Expand</span></u></summary>
-    <p style="margin-left:20px;font-size:14px">
-
-    <b>UC Berkeley</b><br>
-    Fall 2025: Math 170 and Math 228A<br>
-    Spring 2024:<a href=https://bcourses.berkeley.edu/courses/1532627>Math 128B</a><br>
-    Fall 2023: <a href=./math228a_fall2023>Math 228A</a><br>
-    Spring 2023: <a href="https://bcourses.berkeley.edu/courses/1523279">Math 128B</a><br>
-    Fall 2022: <a href=./math228a_fall2022>Math 228A</a> <br><br>
-
-    <b>New York University</b><br>
-    Spring 2022: Linear Algebra I (graduate) <br>
-    Fall 2021: Mathematical Statistics <br>
-    Spring 2021: Linear Algebra I (graduate) <br>
-    Fall 2020: Calculus I <br><br>
-
-    <b>UC Berkeley (GSI)</b><br>
-    Spring 2018: <a href="https://math.berkeley.edu/~apaulin/54_002(Spring2018).html">Math 54</a>, Alexander Paulin <a href="./math54.html">[section page]</a> <br>
-    Spring 2016: <a href="https://math.berkeley.edu/~auroux/53s16/index.html">Math 53</a>, Denis Auroux <a href="./math53quizzes.html">[quizzes]</a> <br>
-    Fall 2015: Math 1B, Ole Hald
-
-</p>
-    </details>
-    <br>
-
-
-    <h2>Miscellanea</h2>
-
-    
-    <h4>Reading list</h4>
-    <p style="margin-left:10px; font-size:14px">
-    Here is a list of <a href="./reading.html">what I read in graduate school</a>, which may suggest 
-    some interesting resources.
-    </p>
-
-    <h4>Undergraduate research</h4>
-    
-    <details><summary><u><span style="font-size:14px;">Expand</span></u></summary>
-
-    <p style="margin-left:20px; font-size:14px">
-    <b>Two views on optimal transport and its numerical solution</b> (2015).
-    My undergraduate thesis (supervised by <a href="http://www2.math.umd.edu/~yanir/">Yanir Rubinstein</a> 
-    and <a href="http://web.stanford.edu/~rmazzeo/cgi-bin/">Rafe Mazzeo</a>), 
-    which presented two new formulations of optimal transport problems leading to two corresponding methods for numerically solving them. 
-    This thesis won the Kennedy Thesis Prize for the top undergraduate thesis in the natural sciences at Stanford.<br>
-<a href="undergraduateThesisLindsey.pdf">[.pdf]</a>
-<br><br>
-
-    <b>Asymptotics of Hermite polynomials</b> (2015). A largely expository paper 
-    (for a course on orthogonal polynomials) about asymptotics of Hermite polynomials and the Gaussian Unitary Ensemble (GUE). 
-    Presents a result about the stationary states for the quantum harmonic oscillator, which, 
-    though likely nothing new, I think is fairly cool.<br>
-<a href="hermite.pdf">[.pdf]</a>
-<br><br>
-
-    <b>Spectral methods for neural computation</b> (2013/14). A presentation for the 
-    <a href="https://web.stanford.edu/group/brainsinsilicon/">Brains in Silicon</a> 
-    lab outlining some ideas about how favorable Fourier-domain properties of certain neural 
-    tuning curves are naturally suited (in an idealized setting) for the computation of simple functions.<br>
-<a href="spectral_neuro_pres.pdf">[slides]</a>
-<br><br>
-
-    <b>3D Shape Understanding Using Machine Learning</b> (2013). A presentation about my 
-    work on using a deep learning framework to perform labeled segmentation of discrete 
-    surfaces and extract multiscale learned shape descriptors. To help with training, 
-    I introduced a new set of shape descriptors based on conformal maps.<br>
-<a href="curisSlides.pdf">[slides]</a><br>
-(Note: research carried out during  <a href="https://curis.stanford.edu/">CURIS</a> 
-2013 in Stanford's <a href="http://geometry.stanford.edu/">Geometric Computation Group</a>.)
-
-<br><br>
-    <b>The <i>k</i>-discs algorithm and its kernelization</b> (2012). Introduces and 
-    analyzes an extension of <i>k</i>-means allowing cluster centroids to be discs of 
-    arbitrary dimension, capable of recovering more diverse cluster geometries.<br>
-    <a href="kDiscs.pdf">[.pdf]</a> <br>
-(Note: class project for CS 229 at Stanford.)
-
-    </p>
-    </details>
-    <br><br>
-
-    </font>
-
-  </body>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Codon design</title>
+  <style>
+    :root {
+      --ink: #29251f;
+      --muted: #5f574c;
+      --paper: #fffaf0;
+      --panel: rgba(255, 250, 240, 0.82);
+      --line: rgba(74, 67, 57, 0.22);
+      --accent: #255f5a;
+      --accent-2: #9b4a30;
+      --shadow: 0 24px 70px rgba(40, 35, 28, 0.14);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Avenir Next", "Gill Sans", "Trebuchet MS", sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(235, 177, 78, 0.28), transparent 34rem),
+        radial-gradient(circle at 90% 15%, rgba(58, 132, 126, 0.22), transparent 36rem),
+        linear-gradient(135deg, #f4ead7 0%, #e3eadb 100%);
+    }
+    button, input, textarea, select { font: inherit; }
+    .shell {
+      width: min(1180px, calc(100vw - 34px));
+      margin: 0 auto;
+      padding: 30px 0 44px;
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 26px;
+    }
+    .brand { display: flex; flex-direction: column; gap: 3px; }
+    .eyebrow {
+      color: var(--accent-2);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino", Georgia, serif;
+      font-size: clamp(34px, 5.5vw, 72px);
+      letter-spacing: -0.055em;
+      line-height: 0.94;
+    }
+    .status-pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 14px;
+      background: rgba(255, 250, 240, 0.68);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+    .input-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.72fr);
+      gap: 24px;
+      padding: clamp(20px, 4vw, 42px);
+    }
+    .copy { display: flex; flex-direction: column; gap: 14px; justify-content: flex-start; min-height: 0; }
+    .copy p {
+      margin: 0;
+      max-width: 58ch;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.55;
+    }
+    .copy a {
+      color: var(--accent);
+      font-weight: 900;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(37, 95, 90, 0.34);
+    }
+    .warning-line { display: block; margin-top: 8px; }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .flow div {
+      min-height: 96px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.34);
+    }
+    .flow b { display: block; margin-bottom: 8px; color: var(--accent); font-size: 13px; }
+    .flow span { color: var(--muted); font-size: 13px; line-height: 1.35; }
+    form { display: flex; flex-direction: column; gap: 14px; }
+    label {
+      color: #4e463b;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .field-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+    .field-head label { margin: 0; }
+    .text-action {
+      border: 0;
+      background: transparent;
+      color: var(--accent);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      padding: 3px 0;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .text-action:hover { color: var(--accent-2); }
+    textarea, input, select {
+      width: 100%;
+      border: 1px solid rgba(74, 67, 57, 0.18);
+      border-radius: 18px;
+      padding: 13px 14px;
+      background: rgba(255, 253, 247, 0.94);
+      color: var(--ink);
+      outline: none;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+    }
+    textarea {
+      min-height: 142px;
+      resize: vertical;
+      font-family: "SF Mono", Menlo, monospace;
+      font-size: 16px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    details {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 12px;
+      background: rgba(255,255,255,0.28);
+    }
+    summary { cursor: pointer; color: var(--muted); font-weight: 800; }
+    .primary, .secondary {
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 18px;
+      cursor: pointer;
+      font-weight: 900;
+      transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+    }
+    .primary { background: #245f58; color: white; box-shadow: 0 12px 30px rgba(36, 95, 88, 0.26); }
+    .secondary {
+      background: rgba(255, 250, 240, 0.92);
+      color: var(--accent);
+      border: 1px solid rgba(37, 95, 90, 0.18);
+    }
+    .primary:hover, .secondary:hover { transform: translateY(-1px); }
+    .primary:disabled { opacity: 0.55; cursor: wait; }
+    .hidden { display: none !important; }
+    .candidate-header, .viz-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    .candidate-title { min-width: 0; flex: 1; width: 100%; }
+    .candidate-sequence-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      max-width: min(780px, 100%);
+      margin-top: 8px;
+    }
+    #candidate-aa { flex: 1; -webkit-line-clamp: 2; }
+    .candidate-sequence-row .copy-button { flex: 0 0 auto; }
+    h2 {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino", Georgia, serif;
+      font-size: clamp(26px, 3.8vw, 46px);
+      letter-spacing: -0.04em;
+    }
+    .subtle { color: var(--muted); font-size: 14px; line-height: 1.45; }
+    .cards { display: grid; grid-template-columns: repeat(5, minmax(175px, 1fr)); gap: 14px; }
+    .candidate-card {
+      position: relative;
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 18px;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .candidate-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -40px -65px auto;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: rgba(37, 95, 90, 0.13);
+    }
+    .rank {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--paper);
+      font-weight: 900;
+      font-size: 18px;
+    }
+    .rna {
+      position: relative;
+      z-index: 1;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 5;
+      overflow: hidden;
+      overflow-wrap: anywhere;
+      font-family: "SF Mono", Menlo, monospace;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+    .metrics {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .metric-row { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); padding-top: 8px; }
+    .metric-row b { color: var(--ink); }
+    .viz-layout { display: grid; grid-template-columns: minmax(0, 1fr) 310px; gap: 18px; align-items: start; }
+    .svg-panel { position: relative; width: 100%; padding: 0; overflow: hidden; }
+    .svg-panel.loading { min-height: 360px; display: grid; place-items: center; }
+    .svg-stage {
+      width: 100%;
+      padding: 56px 18px 18px;
+      opacity: 0;
+      transform: scale(0.995);
+      transition: opacity 450ms ease, transform 450ms ease;
+    }
+    .svg-stage.visible { opacity: 1; transform: none; }
+    .svg-stage.fade-out { opacity: 0; transform: scale(0.99); transition-duration: 350ms; }
+    .svg-view { display: none; width: 100%; line-height: 0; justify-content: center; }
+    .svg-view.active { display: flex; }
+    .svg-view svg { display: block; max-width: 100%; width: 100%; height: auto; margin: 0 auto; }
+    .structure-toggle {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 3;
+      border: 1px solid rgba(37, 95, 90, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 250, 240, 0.92);
+      color: var(--accent);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 900;
+      padding: 8px 11px;
+      box-shadow: 0 8px 20px rgba(40, 35, 28, 0.10);
+    }
+    .side-panel { padding: 20px; display: grid; gap: 14px; }
+    .mono { font-family: "SF Mono", Menlo, monospace; overflow-wrap: anywhere; font-size: 13px; line-height: 1.35; }
+    .truncate { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; overflow: hidden; }
+    .copy-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .copy-button {
+      border: 1px solid rgba(37, 95, 90, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 250, 240, 0.86);
+      color: var(--accent);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 900;
+      padding: 7px 10px;
+    }
+    .copy-button.copied { color: white; background: var(--accent); }
+    .error {
+      margin-top: 14px;
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(155, 74, 48, 0.11);
+      color: #7e3523;
+      border: 1px solid rgba(155, 74, 48, 0.25);
+      white-space: pre-wrap;
+    }
+    .loader { display: inline-flex; align-items: center; gap: 10px; color: var(--muted); font-weight: 800; }
+    .spinner {
+      width: 18px;
+      height: 18px;
+      border: 3px solid rgba(37, 95, 90, 0.18);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 800ms linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @media (max-width: 920px) {
+      .input-panel, .viz-layout { grid-template-columns: 1fr; }
+      .flow, .cards { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .topbar, .candidate-header, .viz-header { align-items: flex-start; flex-direction: column; }
+      .flow, .cards, .grid-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="topbar">
+      <div class="brand">
+        <div class="eyebrow">Stability-driven</div>
+        <h1>Codon design</h1>
+      </div>
+      <div id="status-pill" class="status-pill">single-thread WASM</div>
+    </div>
+
+    <section id="input-page" class="panel input-panel">
+      <div class="copy">
+        <div>
+          <p>RNA codes for proteins. But for a given protein, the number of RNA sequences coding for it grows exponentially with length. Such “synonymous” choices can differ dramatically in their structure and stability. This application samples stable coding sequences for a target amino-acid sequence and visualizes their likely structures, illustrating how fast algorithms can turn the huge design space into concrete RNA candidates. For background and example sequences, see the <a href="https://arxiv.org/abs/2604.19718" target="_blank" rel="noreferrer">preprint</a>.<span class="warning-line"><strong>Warning:</strong> Costs grow quickly beyond a couple hundred amino acids. This browser build is single-thread CPU-WASM and does all computation on the visitor's machine.</span></p>
+        </div>
+        <div class="flow">
+          <div><b>1. sample</b><span>Draw RNAs compatible with the protein in the browser.</span></div>
+          <div><b>2. rank</b><span>Deduplicate and keep the lowest-scoring candidates.</span></div>
+          <div><b>3. choose</b><span>Inspect top RNAs in rank order.</span></div>
+          <div><b>4. visualize</b><span>Render sampled dot-bracket structures locally.</span></div>
+        </div>
+      </div>
+
+      <form id="design-form">
+        <div>
+          <div class="field-head">
+            <label for="psi">Amino-acid sequence</label>
+            <button id="random-psi" class="text-action" type="button">random example</button>
+          </div>
+          <textarea id="psi" spellcheck="false"></textarea>
+        </div>
+
+        <details>
+          <summary>Run settings</summary>
+          <div class="grid-2" style="margin-top: 14px;">
+            <div><label for="rna-samples">RNA samples</label><input id="rna-samples" type="number" min="1" value="2000"></div>
+            <div><label for="top-k">Top candidates</label><input id="top-k" type="number" min="1" value="5"></div>
+            <div><label for="structure-samples">Structures / candidate</label><input id="structure-samples" type="number" min="0" value="1000"></div>
+            <div><label for="seed">Seed</label><input id="seed" type="number" min="0" value="123"></div>
+            <div><label for="ranking-mode">Ranking mode</label><select id="ranking-mode"><option value="auto">auto</option><option value="exact">exact</option><option value="fast">fast</option></select></div>
+            <div><label for="rank-pool">Fast rank pool</label><input id="rank-pool" type="number" min="1" value="20"></div>
+          </div>
+        </details>
+
+        <button id="run-button" class="primary" type="submit">Run in browser</button>
+        <div id="input-error" class="error hidden"></div>
+        <div id="input-loader" class="loader hidden"><span class="spinner"></span><span>Running WASM backend...</span></div>
+      </form>
+    </section>
+
+    <section id="candidate-page" class="hidden">
+      <div class="candidate-header">
+        <div class="candidate-title">
+          <h2>Top RNA candidates</h2>
+          <div class="candidate-sequence-row">
+            <div id="candidate-aa" class="mono subtle truncate"></div>
+            <button id="candidate-aa-copy" class="copy-button hidden" type="button" data-copy-target="candidate-aa">copy AA</button>
+          </div>
+          <div id="run-summary" class="subtle"></div>
+        </div>
+        <button id="new-sequence" class="secondary">New sequence</button>
+      </div>
+      <div id="candidate-cards" class="cards"></div>
+    </section>
+
+    <section id="viz-page" class="hidden">
+      <div class="viz-header">
+        <div>
+          <h2 id="viz-title">Candidate</h2>
+          <div id="viz-subtitle" class="subtle"></div>
+        </div>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <button id="back-candidates" class="secondary">Back to candidates</button>
+          <button id="back-input" class="secondary">New sequence</button>
+        </div>
+      </div>
+      <div class="viz-layout">
+        <div id="svg-panel" class="panel svg-panel loading">
+          <div class="loader"><span class="spinner"></span><span>Rendering structure...</span></div>
+        </div>
+        <aside class="panel side-panel">
+          <button id="refresh-structure" class="primary">Random refresh</button>
+          <div class="subtle" id="structure-meta"></div>
+          <div>
+            <div class="copy-head">
+              <label>RNA</label>
+              <button class="copy-button" type="button" data-copy-target="viz-rna">copy</button>
+            </div>
+            <div id="viz-rna" class="mono truncate"></div>
+          </div>
+          <div>
+            <div class="copy-head">
+              <label>AA</label>
+              <button class="copy-button" type="button" data-copy-target="viz-aa">copy</button>
+            </div>
+            <div id="viz-aa" class="mono truncate"></div>
+          </div>
+          <div class="metrics" id="viz-metrics"></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script src="codon_design_run.js"></script>
+  <script src="vienna_render.js"></script>
+  <script src="app.js"></script>
+</body>
 </html>
