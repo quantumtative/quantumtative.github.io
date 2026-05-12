@@ -98,10 +98,9 @@
     $("psi").title = choice.name;
   }
 
-  function resolveRunSettings(psi) {
+  function resolveRunSettings(psi, structures) {
     const requestedMode = $("ranking-mode").value;
     let rankingMode = requestedMode === "fast" ? "fast" : requestedMode === "exact" ? "exact" : "auto";
-    let structures = Math.max(0, Number($("structure-samples").value) || 0);
     let rankPool = Math.max(1, Number($("rank-pool").value) || 20);
     const notes = [];
     if (rankingMode === "auto") {
@@ -125,13 +124,7 @@
         rankingMode = "exact";
       }
     }
-    return {
-      requestedMode,
-      rankingMode,
-      structures,
-      rankPool,
-      notes
-    };
+    return { requestedMode, rankingMode, structures, rankPool, notes };
   }
 
   async function runWasmDesign(payload) {
@@ -520,10 +513,12 @@
       setError("Enter a valid amino-acid sequence.");
       return;
     }
-    const resolved = resolveRunSettings(psi);
+    const rnaSamples = Math.max(1, Number($("rna-samples").value) || 2000);
+    const structures = Math.max(0, Number($("structure-samples").value) || 0);
+    const resolved = resolveRunSettings(psi, structures);
     const payload = {
       psi,
-      rna_samples: Math.max(1, Number($("rna-samples").value) || 2000),
+      rna_samples: rnaSamples,
       top_k: Math.max(1, Number($("top-k").value) || 5),
       structures_per_candidate: resolved.structures,
       seed: Math.max(0, Number($("seed").value) || 123),
@@ -563,7 +558,7 @@
       ? ` · ${run.browser_notes.join(" · ")}`
       : "";
     $("run-summary").textContent =
-      `${run.rna_sample_count} samples · ${run.unique_rna_count} unique RNAs · single-thread CPU-WASM · ${rankLabel} ranking · ${fmt(run.wall_elapsed_browser_seconds)} s browser wall time${notes}`;
+      `${run.rna_sample_count} RNA samples · ${run.unique_rna_count} unique RNAs · ${rankLabel} ranking · single-thread CPU-WASM · ${fmt(run.wall_elapsed_browser_seconds)} s browser wall time${notes}`;
     $("candidate-cards").innerHTML = run.candidates.map((candidate, index) => `
       <article class="panel candidate-card" data-index="${index}">
         <div class="rank">${candidate.rank}</div>
